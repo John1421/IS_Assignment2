@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.server.model.Media;
+import com.server.service.MediaService;
+
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 

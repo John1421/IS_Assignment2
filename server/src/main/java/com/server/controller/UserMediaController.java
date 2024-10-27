@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.*;
 import com.server.model.UserMedia;
 import com.server.service.UserMediaService;
 
-import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
@@ -22,17 +21,19 @@ public class UserMediaController {
         return userMediaService.createUserMediaRelationship(userId, mediaId);
     }
 
-    // Get all media for a specific user
-    @GetMapping("/user/{userId}")
-    public Flux<UserMedia> getMediaByUserId(@PathVariable("userId") long userId) {
-        return userMediaService.getMediaByUserId(userId);
-    }
+    // // Get all media for a specific user
+    // @GetMapping("/user/{userId}")
+    // public Flux<UserMedia> getMediaByUserId(@PathVariable("userId") long userId)
+    // {
+    // return userMediaService.getMediaByUserId(userId);
+    // }
 
-    // Get all users for a specific media
-    @GetMapping("/media/{mediaId}")
-    public Flux<UserMedia> getUsersByMediaId(@PathVariable("mediaId") long mediaId) {
-        return userMediaService.getUsersByMediaId(mediaId);
-    }
+    // // Get all users for a specific media
+    // @GetMapping("/media/{mediaId}")
+    // public Flux<UserMedia> getUsersByMediaId(@PathVariable("mediaId") long
+    // mediaId) {
+    // return userMediaService.getUsersByMediaId(mediaId);
+    // }
 
     // Delete user-media relationship by ID
     @DeleteMapping("/{id}")

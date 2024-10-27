@@ -2,5 +2,7 @@ package com.server.repository;
 
 import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 
-public interface UserMediaRepository extends R2dbcRepository<UserMedia, Long> {
+import com.server.model.UserMedia;
+
+public interface UserMediaRepository extends ReactiveCrudRepository<UserMedia, Long> {
 }
