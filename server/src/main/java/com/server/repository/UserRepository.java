@@ -1,7 +1,6 @@
 package com.server.repository;
 
-import org.springframework.data.r2dbc.repository.R2dbcRepository;
+import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 
 public interface UserRepository extends R2dbcRepository<User, Long> {
-    // add custom query methods
 }

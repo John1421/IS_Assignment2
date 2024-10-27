@@ -1,7 +1,6 @@
-package com.server;
+package com.server.repository;
 
-import org.springframework.data.r2dbc.repository.R2dbcRepository;
+import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 
-public interface MediaRepository extends R2dbcRepository<Media, Long> {
-
+public interface MediaRepository extends ReactiveCrudRepository<Media, Long> {
 }
