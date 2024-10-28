@@ -17,7 +17,6 @@ RUN apt update -y && apt install -y \
     vim \
     zsh \
     less \
-    postgresql-client \
     && apt clean all
 
 # Add the user, set password, and add to sudo group
