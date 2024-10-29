@@ -1,0 +1,18 @@
+2024-10-29T12:16:21.520Z  INFO 25863 --- [main] com.server.ServerApplication             : Starting ServerApplication using Java 21.0.4 with PID 25863 (/workspace/target/classes started by dev in /workspace)
+2024-10-29T12:16:21.524Z  INFO 25863 --- [main] com.server.ServerApplication             : No active profile set, falling back to 1 default profile: "default"
+2024-10-29T12:16:22.989Z  INFO 25863 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data R2DBC repositories in DEFAULT mode.
+2024-10-29T12:16:23.587Z  INFO 25863 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 587 ms. Found 3 R2DBC repository interfaces.
+2024-10-29T12:16:27.724Z  INFO 25863 --- [main] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 8080 (http)
+2024-10-29T12:16:27.739Z  INFO 25863 --- [main] com.server.ServerApplication             : Started ServerApplication in 7.412 seconds (process running for 8.144)
+2024-10-29T12:16:49.389Z  INFO 25863 --- [reactor-http-epoll-2] com.server.controller.MediaController    : Received request to fetch all media.
+2024-10-29T12:16:49.880Z  INFO 25863 --- [reactor-http-epoll-2] com.server.controller.MediaController    : Completed fetching all media.
+2024-10-29T12:26:24.611Z  INFO 30722 --- [main] com.server.ServerApplication             : Starting ServerApplication using Java 21.0.4 with PID 30722 (/workspace/target/classes started by dev in /workspace)
+2024-10-29T12:26:24.615Z  INFO 30722 --- [main] com.server.ServerApplication             : No active profile set, falling back to 1 default profile: "default"
+2024-10-29T12:26:26.192Z  INFO 30722 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data R2DBC repositories in DEFAULT mode.
+2024-10-29T12:26:26.882Z  INFO 30722 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 674 ms. Found 3 R2DBC repository interfaces.
+2024-10-29T12:26:31.646Z  INFO 30722 --- [main] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 8080 (http)
+2024-10-29T12:26:31.662Z  INFO 30722 --- [main] com.server.ServerApplication             : Started ServerApplication in 8.259 seconds (process running for 8.994)
+2024-10-29T12:26:59.371Z  INFO 30722 --- [reactor-http-epoll-2] com.server.controller.MediaController    : Received request to fetch media with ID: 1
+2024-10-29T12:26:59.935Z  INFO 30722 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Found media: Media(id=1, title=The Shawshank Redemption, releaseDate=1994-09-22, averageRating=9.3, type=MOVIE)
+2024-10-29T12:27:30.103Z  INFO 30722 --- [reactor-http-epoll-2] com.server.controller.MediaController    : Received request to fetch all media.
+2024-10-29T12:27:30.172Z  INFO 30722 --- [reactor-http-epoll-2] com.server.controller.MediaController    : Completed fetching all media.
