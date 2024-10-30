@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-
+import java.util.List;
 import org.springframework.data.annotation.Id;
 
 @Data
@@ -19,6 +19,7 @@ public class Media {
     private LocalDate releaseDate;
     private double averageRating;
     private MediaType type;
+    private List<Long> users;
 
     public enum MediaType {
         MOVIE, TV_SHOW

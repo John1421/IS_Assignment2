@@ -17,8 +17,7 @@ public class App implements CommandLineRunner {
 
     @Autowired
     public App(WebClient.Builder webClientBuilder) {
-        // Ensure the base URL has the correct scheme
-        this.webClient = webClientBuilder.baseUrl("http://localhost:8080").build();
+        this.webClient = webClientBuilder.baseUrl("http://host.docker.internal:8080").build();
     }
 
     public static void main(String[] args) {

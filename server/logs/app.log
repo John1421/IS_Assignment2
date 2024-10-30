@@ -1,18 +1,117 @@
-2024-10-29T12:16:21.520Z  INFO 25863 --- [main] com.server.ServerApplication             : Starting ServerApplication using Java 21.0.4 with PID 25863 (/workspace/target/classes started by dev in /workspace)
-2024-10-29T12:16:21.524Z  INFO 25863 --- [main] com.server.ServerApplication             : No active profile set, falling back to 1 default profile: "default"
-2024-10-29T12:16:22.989Z  INFO 25863 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data R2DBC repositories in DEFAULT mode.
-2024-10-29T12:16:23.587Z  INFO 25863 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 587 ms. Found 3 R2DBC repository interfaces.
-2024-10-29T12:16:27.724Z  INFO 25863 --- [main] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 8080 (http)
-2024-10-29T12:16:27.739Z  INFO 25863 --- [main] com.server.ServerApplication             : Started ServerApplication in 7.412 seconds (process running for 8.144)
-2024-10-29T12:16:49.389Z  INFO 25863 --- [reactor-http-epoll-2] com.server.controller.MediaController    : Received request to fetch all media.
-2024-10-29T12:16:49.880Z  INFO 25863 --- [reactor-http-epoll-2] com.server.controller.MediaController    : Completed fetching all media.
-2024-10-29T12:26:24.611Z  INFO 30722 --- [main] com.server.ServerApplication             : Starting ServerApplication using Java 21.0.4 with PID 30722 (/workspace/target/classes started by dev in /workspace)
-2024-10-29T12:26:24.615Z  INFO 30722 --- [main] com.server.ServerApplication             : No active profile set, falling back to 1 default profile: "default"
-2024-10-29T12:26:26.192Z  INFO 30722 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data R2DBC repositories in DEFAULT mode.
-2024-10-29T12:26:26.882Z  INFO 30722 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 674 ms. Found 3 R2DBC repository interfaces.
-2024-10-29T12:26:31.646Z  INFO 30722 --- [main] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 8080 (http)
-2024-10-29T12:26:31.662Z  INFO 30722 --- [main] com.server.ServerApplication             : Started ServerApplication in 8.259 seconds (process running for 8.994)
-2024-10-29T12:26:59.371Z  INFO 30722 --- [reactor-http-epoll-2] com.server.controller.MediaController    : Received request to fetch media with ID: 1
-2024-10-29T12:26:59.935Z  INFO 30722 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Found media: Media(id=1, title=The Shawshank Redemption, releaseDate=1994-09-22, averageRating=9.3, type=MOVIE)
-2024-10-29T12:27:30.103Z  INFO 30722 --- [reactor-http-epoll-2] com.server.controller.MediaController    : Received request to fetch all media.
-2024-10-29T12:27:30.172Z  INFO 30722 --- [reactor-http-epoll-2] com.server.controller.MediaController    : Completed fetching all media.
+2024-10-30T12:14:46.229Z  INFO 21529 --- [main] com.server.ServerApplication             : Starting ServerApplication using Java 21.0.4 with PID 21529 (/workspace/target/classes started by dev in /workspace)
+2024-10-30T12:14:46.251Z  INFO 21529 --- [main] com.server.ServerApplication             : No active profile set, falling back to 1 default profile: "default"
+2024-10-30T12:14:47.836Z  INFO 21529 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data R2DBC repositories in DEFAULT mode.
+2024-10-30T12:14:48.426Z  INFO 21529 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 573 ms. Found 3 R2DBC repository interfaces.
+2024-10-30T12:14:52.577Z  WARN 21529 --- [main] onfigReactiveWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'r2dbcScriptDatabaseInitializer' defined in class path resource [org/springframework/boot/autoconfigure/sql/init/R2dbcInitializationConfiguration.class]: Failed to execute SQL script statement #3 of class path resource [schema.sql]: CREATE TABLE IF NOT EXISTS user_media ( user_id BIGINT NOT NULL, media_id BIGINT NOT NULL, FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE, FOREIGN KEY (media_id) REFERENCES media(id) ON DELETE CASCADE PRIMARY KEY(media_id, users_id) )
+2024-10-30T12:14:52.627Z  INFO 21529 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-10-30T12:14:52.703Z ERROR 21529 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'r2dbcScriptDatabaseInitializer' defined in class path resource [org/springframework/boot/autoconfigure/sql/init/R2dbcInitializationConfiguration.class]: Failed to execute SQL script statement #3 of class path resource [schema.sql]: CREATE TABLE IF NOT EXISTS user_media ( user_id BIGINT NOT NULL, media_id BIGINT NOT NULL, FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE, FOREIGN KEY (media_id) REFERENCES media(id) ON DELETE CASCADE PRIMARY KEY(media_id, users_id) )
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1806) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:971) ~[spring-context-6.1.13.jar:6.1.13]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625) ~[spring-context-6.1.13.jar:6.1.13]
+	at org.springframework.boot.web.reactive.context.ReactiveWebServerApplicationContext.refresh(ReactiveWebServerApplicationContext.java:66) ~[spring-boot-3.3.4.jar:3.3.4]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.3.4.jar:3.3.4]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.3.4.jar:3.3.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335) ~[spring-boot-3.3.4.jar:3.3.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363) ~[spring-boot-3.3.4.jar:3.3.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352) ~[spring-boot-3.3.4.jar:3.3.4]
+	at com.server.ServerApplication.main(ServerApplication.java:10) ~[classes/:na]
+Caused by: org.springframework.r2dbc.connection.init.ScriptStatementFailedException: Failed to execute SQL script statement #3 of class path resource [schema.sql]: CREATE TABLE IF NOT EXISTS user_media ( user_id BIGINT NOT NULL, media_id BIGINT NOT NULL, FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE, FOREIGN KEY (media_id) REFERENCES media(id) ON DELETE CASCADE PRIMARY KEY(media_id, users_id) )
+	at org.springframework.r2dbc.connection.init.ScriptUtils.lambda$runStatement$9(ScriptUtils.java:571) ~[spring-r2dbc-6.1.13.jar:6.1.13]
+	at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:94) ~[reactor-core-3.5.20.jar:3.5.20]
+	at reactor.core.publisher.MonoStreamCollector$StreamCollectorSubscriber.onError(MonoStreamCollector.java:149) ~[reactor-core-3.5.20.jar:3.5.20]
+	at reactor.core.publisher.FluxFlatMap$FlatMapMain.checkTerminated(FluxFlatMap.java:843) ~[reactor-core-3.5.20.jar:3.5.20]
+	at reactor.core.publisher.FluxFlatMap$FlatMapMain.drainLoop(FluxFlatMap.java:609) ~[reactor-core-3.5.20.jar:3.5.20]
+	at reactor.core.publisher.FluxFlatMap$FlatMapMain.drain(FluxFlatMap.java:589) ~[reactor-core-3.5.20.jar:3.5.20]
+	at reactor.core.publisher.FluxFlatMap$FlatMapMain.innerError(FluxFlatMap.java:864) ~[reactor-core-3.5.20.jar:3.5.20]
+	at reactor.core.publisher.FluxFlatMap$FlatMapInner.onError(FluxFlatMap.java:991) ~[reactor-core-3.5.20.jar:3.5.20]
+	at reactor.core.publisher.FluxHandleFuseable$HandleFuseableSubscriber.onError(FluxHandleFuseable.java:229) ~[reactor-core-3.5.20.jar:3.5.20]
+	at reactor.core.publisher.MonoCollectList$MonoCollectListSubscriber.onError(MonoCollectList.java:108) ~[reactor-core-3.5.20.jar:3.5.20]
+	at reactor.core.publisher.FluxHandleFuseable$HandleFuseableSubscriber.onNext(FluxHandleFuseable.java:201) ~[reactor-core-3.5.20.jar:3.5.20]
+	at reactor.core.publisher.FluxWindowPredicate$WindowFlux.drainRegular(FluxWindowPredicate.java:670) ~[reactor-core-3.5.20.jar:3.5.20]
+	at reactor.core.publisher.FluxWindowPredicate$WindowFlux.drain(FluxWindowPredicate.java:748) ~[reactor-core-3.5.20.jar:3.5.20]
+	at reactor.core.publisher.FluxWindowPredicate$WindowFlux.onNext(FluxWindowPredicate.java:790) ~[reactor-core-3.5.20.jar:3.5.20]
+	at reactor.core.publisher.FluxWindowPredicate$WindowPredicateMain.onNext(FluxWindowPredicate.java:241) ~[reactor-core-3.5.20.jar:3.5.20]
+	at io.r2dbc.postgresql.util.FluxDiscardOnCancel$FluxDiscardOnCancelSubscriber.onNext(FluxDiscardOnCancel.java:91) ~[r2dbc-postgresql-1.0.7.RELEASE.jar:1.0.7.RELEASE]
+	at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107) ~[reactor-core-3.5.20.jar:3.5.20]
+	at reactor.core.publisher.FluxCreate$BufferAsyncSink.drain(FluxCreate.java:878) ~[reactor-core-3.5.20.jar:3.5.20]
+	at reactor.core.publisher.FluxCreate$BufferAsyncSink.next(FluxCreate.java:803) ~[reactor-core-3.5.20.jar:3.5.20]
+	at reactor.core.publisher.FluxCreate$SerializedFluxSink.next(FluxCreate.java:161) ~[reactor-core-3.5.20.jar:3.5.20]
+	at io.r2dbc.postgresql.client.ReactorNettyClient$Conversation.emit(ReactorNettyClient.java:696) ~[r2dbc-postgresql-1.0.7.RELEASE.jar:1.0.7.RELEASE]
+	at io.r2dbc.postgresql.client.ReactorNettyClient$BackendMessageSubscriber.emit(ReactorNettyClient.java:948) ~[r2dbc-postgresql-1.0.7.RELEASE.jar:1.0.7.RELEASE]
+	at io.r2dbc.postgresql.client.ReactorNettyClient$BackendMessageSubscriber.onNext(ReactorNettyClient.java:822) ~[r2dbc-postgresql-1.0.7.RELEASE.jar:1.0.7.RELEASE]
+	at io.r2dbc.postgresql.client.ReactorNettyClient$BackendMessageSubscriber.onNext(ReactorNettyClient.java:728) ~[r2dbc-postgresql-1.0.7.RELEASE.jar:1.0.7.RELEASE]
+	at reactor.core.publisher.FluxHandle$HandleSubscriber.onNext(FluxHandle.java:129) ~[reactor-core-3.5.20.jar:3.5.20]
+	at reactor.core.publisher.FluxPeekFuseable$PeekConditionalSubscriber.onNext(FluxPeekFuseable.java:854) ~[reactor-core-3.5.20.jar:3.5.20]
+	at reactor.core.publisher.FluxMap$MapConditionalSubscriber.onNext(FluxMap.java:224) ~[reactor-core-3.5.20.jar:3.5.20]
+	at reactor.core.publisher.FluxMap$MapConditionalSubscriber.onNext(FluxMap.java:224) ~[reactor-core-3.5.20.jar:3.5.20]
+	at reactor.netty.channel.FluxReceive.drainReceiver(FluxReceive.java:294) ~[reactor-netty-core-1.1.22.jar:1.1.22]
+	at reactor.netty.channel.FluxReceive.onInboundNext(FluxReceive.java:403) ~[reactor-netty-core-1.1.22.jar:1.1.22]
+	at reactor.netty.channel.ChannelOperations.onInboundNext(ChannelOperations.java:425) ~[reactor-netty-core-1.1.22.jar:1.1.22]
+	at reactor.netty.channel.ChannelOperationsHandler.channelRead(ChannelOperationsHandler.java:115) ~[reactor-netty-core-1.1.22.jar:1.1.22]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444) ~[netty-transport-4.1.112.Final.jar:4.1.112.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[netty-transport-4.1.112.Final.jar:4.1.112.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412) ~[netty-transport-4.1.112.Final.jar:4.1.112.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:346) ~[netty-codec-4.1.112.Final.jar:4.1.112.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:333) ~[netty-codec-4.1.112.Final.jar:4.1.112.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:455) ~[netty-codec-4.1.112.Final.jar:4.1.112.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:290) ~[netty-codec-4.1.112.Final.jar:4.1.112.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444) ~[netty-transport-4.1.112.Final.jar:4.1.112.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[netty-transport-4.1.112.Final.jar:4.1.112.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412) ~[netty-transport-4.1.112.Final.jar:4.1.112.Final]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1407) ~[netty-transport-4.1.112.Final.jar:4.1.112.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440) ~[netty-transport-4.1.112.Final.jar:4.1.112.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[netty-transport-4.1.112.Final.jar:4.1.112.Final]
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:918) ~[netty-transport-4.1.112.Final.jar:4.1.112.Final]
+	at io.netty.channel.epoll.AbstractEpollStreamChannel$EpollStreamUnsafe.epollInReady(AbstractEpollStreamChannel.java:799) ~[netty-transport-classes-epoll-4.1.112.Final.jar:4.1.112.Final]
+	at io.netty.channel.epoll.EpollEventLoop.processReady(EpollEventLoop.java:501) ~[netty-transport-classes-epoll-4.1.112.Final.jar:4.1.112.Final]
+	at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:399) ~[netty-transport-classes-epoll-4.1.112.Final.jar:4.1.112.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:994) ~[netty-common-4.1.112.Final.jar:4.1.112.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.112.Final.jar:4.1.112.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.112.Final.jar:4.1.112.Final]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+	Suppressed: java.lang.Exception: #block terminated with an error
+		at reactor.core.publisher.BlockingSingleSubscriber.blockingGet(BlockingSingleSubscriber.java:103) ~[reactor-core-3.5.20.jar:3.5.20]
+		at reactor.core.publisher.Mono.block(Mono.java:1712) ~[reactor-core-3.5.20.jar:3.5.20]
+		at org.springframework.boot.r2dbc.init.R2dbcScriptDatabaseInitializer.runScripts(R2dbcScriptDatabaseInitializer.java:68) ~[spring-boot-3.3.4.jar:3.3.4]
+		at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.runScripts(AbstractScriptDatabaseInitializer.java:146) ~[spring-boot-3.3.4.jar:3.3.4]
+		at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.applyScripts(AbstractScriptDatabaseInitializer.java:108) ~[spring-boot-3.3.4.jar:3.3.4]
+		at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.applySchemaScripts(AbstractScriptDatabaseInitializer.java:98) ~[spring-boot-3.3.4.jar:3.3.4]
+		at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.initializeDatabase(AbstractScriptDatabaseInitializer.java:76) ~[spring-boot-3.3.4.jar:3.3.4]
+		at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.afterPropertiesSet(AbstractScriptDatabaseInitializer.java:66) ~[spring-boot-3.3.4.jar:3.3.4]
+		at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853) ~[spring-beans-6.1.13.jar:6.1.13]
+		at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802) ~[spring-beans-6.1.13.jar:6.1.13]
+		at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600) ~[spring-beans-6.1.13.jar:6.1.13]
+		at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.13.jar:6.1.13]
+		at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.13.jar:6.1.13]
+		at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.13.jar:6.1.13]
+		at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.13.jar:6.1.13]
+		at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.13.jar:6.1.13]
+		at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975) ~[spring-beans-6.1.13.jar:6.1.13]
+		at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:971) ~[spring-context-6.1.13.jar:6.1.13]
+		at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625) ~[spring-context-6.1.13.jar:6.1.13]
+		at org.springframework.boot.web.reactive.context.ReactiveWebServerApplicationContext.refresh(ReactiveWebServerApplicationContext.java:66) ~[spring-boot-3.3.4.jar:3.3.4]
+		at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.3.4.jar:3.3.4]
+		at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.3.4.jar:3.3.4]
+		at org.springframework.boot.SpringApplication.run(SpringApplication.java:335) ~[spring-boot-3.3.4.jar:3.3.4]
+		at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363) ~[spring-boot-3.3.4.jar:3.3.4]
+		at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352) ~[spring-boot-3.3.4.jar:3.3.4]
+		at com.server.ServerApplication.main(ServerApplication.java:10) ~[classes/:na]
+Caused by: io.r2dbc.postgresql.ExceptionFactory$PostgresqlBadGrammarException: syntax error at or near "PRIMARY"
+	at io.r2dbc.postgresql.ExceptionFactory.createException(ExceptionFactory.java:96) ~[r2dbc-postgresql-1.0.7.RELEASE.jar:1.0.7.RELEASE]
+	at io.r2dbc.postgresql.ExceptionFactory.createException(ExceptionFactory.java:65) ~[r2dbc-postgresql-1.0.7.RELEASE.jar:1.0.7.RELEASE]
+	at io.r2dbc.postgresql.ExceptionFactory.handleErrorResponse(ExceptionFactory.java:132) ~[r2dbc-postgresql-1.0.7.RELEASE.jar:1.0.7.RELEASE]
+	at io.r2dbc.postgresql.PostgresqlResult.lambda$getRowsUpdated$0(PostgresqlResult.java:70) ~[r2dbc-postgresql-1.0.7.RELEASE.jar:1.0.7.RELEASE]
+	at reactor.core.publisher.FluxHandleFuseable$HandleFuseableSubscriber.onNext(FluxHandleFuseable.java:179) ~[reactor-core-3.5.20.jar:3.5.20]
+	... 42 common frames omitted
+

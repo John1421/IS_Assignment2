@@ -1,5 +1,7 @@
 package com.server.model;
 
+import java.util.List;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
@@ -18,6 +20,7 @@ public class User {
     private String name;
     private Integer age;
     private Gender gender;
+    private List<Long> medias;
 
     public enum Gender {
         MALE, FEMALE, OTHER

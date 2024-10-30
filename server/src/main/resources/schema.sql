@@ -13,12 +13,11 @@ CREATE TABLE IF NOT EXISTS users (
     gender VARCHAR(10) NOT NULL CHECK (gender IN ('MALE', 'FEMALE', 'OTHER'))
 );
 
-CREATE TABLE IF NOT EXISTS user_media (
-    id SERIAL PRIMARY KEY,
-    user_id BIGINT NOT NULL,
-    media_id BIGINT NOT NULL,                
-    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+CREATE TABLE IF NOT EXISTS ratings (
+	rating	 BIGINT NOT NULL,
+	FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
     FOREIGN KEY (media_id) REFERENCES media(id) ON DELETE CASCADE 
+	PRIMARY KEY(users_id, media_id)
 );
 
 ------------------------------------------------------------------USERS
