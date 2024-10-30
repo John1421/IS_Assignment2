@@ -66,13 +66,8 @@ public class MediaController {
     @DeleteMapping("/{id}")
     private Mono<Media> deleteMedia(@PathVariable("id") long id) {
         log.info("Received request to delete media with ID: {}", id);
-        return mediaService.getMediaById(id)
-                .flatMap(media -> {
-                    log.info("Deleting media: {}", media);
-                    return mediaService.deleteMedia(id)
-                            .doOnSuccess(unused -> log.info("Successfully deleted media with ID {}", id))
-                            .thenReturn(media);
-                })
+        return mediaService.deleteMedia(id)
+                .doOnSuccess(unused -> log.info("Successfully deleted media with ID {}", id))
                 .doOnError(e -> log.error("Error deleting media with ID {}: {}", id, e.getMessage()));
     }
 }

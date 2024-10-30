@@ -32,7 +32,11 @@ public class MediaService {
                 .flatMap(existingMedia -> mediaRepository.save(media));
     }
 
-    public Mono<Void> deleteMedia(long id) {
-        return mediaRepository.deleteById(id);
+    public Mono<Media> deleteMedia(long id) {
+
+        return getMediaById(id)
+                .doOnSuccess(m -> {
+                    mediaRepository.deleteById(id);
+                });
     }
 }

@@ -32,7 +32,10 @@ public class UserService {
                 .flatMap(existingUser -> userRepository.save(user));
     }
 
-    public Mono<Void> deleteUser(long id) {
-        return userRepository.deleteById(id);
+    public Mono<User> deleteUser(long id) {
+        return getUserById(id)
+                .doOnSuccess(u -> {
+                    userRepository.deleteById(id);
+                });
     }
 }
