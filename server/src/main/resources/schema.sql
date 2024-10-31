@@ -14,10 +14,12 @@ CREATE TABLE IF NOT EXISTS users (
 );
 
 CREATE TABLE IF NOT EXISTS ratings (
-	rating	 BIGINT NOT NULL,
-	FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
-    FOREIGN KEY (media_id) REFERENCES media(id) ON DELETE CASCADE 
-	PRIMARY KEY(users_id, media_id)
+    user_id BIGINT NOT NULL,
+    media_id BIGINT NOT NULL,
+    rating BIGINT NOT NULL,
+    PRIMARY KEY (user_id, media_id),
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (media_id) REFERENCES media(id) ON DELETE CASCADE
 );
 
 ------------------------------------------------------------------USERS
