@@ -27,31 +27,33 @@ public class App implements CommandLineRunner {
     @Override
     public void run(String... args) {
         webClient.get()
-                .uri("/media")
-                .retrieve()
-                .bodyToFlux(String.class)
-                .doOnNext(System.out::println)
-                .doOnError(error -> System.err.println("Error!!!"))
-                .subscribe();
+            .uri("/media")
+            .retrieve()
+            .bodyToFlux(String.class)
+            .doOnNext(System.out::println)
+            .doOnError(error -> System.err.println("Error!!!"))
+            .blockLast();
+    
+    // REQ 4
+    int mediaCount = webClient.get()
+            .uri("/media")
+            .retrieve()
+            .bodyToFlux(Media.class)
+            .collectList()
+            .flatMap(m -> Mono.just(m.size()))
+            .block();
+    System.out.println("Media Count: " + mediaCount);
 
-        // REQ 4
-        webClient.get()
-                .uri("/media")
-                .retrieve()
-                .bodyToFlux(Media.class)
-                .collectList()
-                .flatMap(m -> Mono.just(m.size()))
-                .subscribe(System.out::println);
-
-        // REQ 5
-        webClient.get()
-                .uri("/media")
-                .retrieve()
-                .bodyToFlux(Media.class)
-                .filter(m -> m.getReleaseDate().isAfter(LocalDate.of(1980, 1, 1)) &&
-                        m.getReleaseDate().isBefore(LocalDate.of(1989, 12, 31)))
-                .sort((m1, m2) -> Double.compare(m1.getAverageRating(), m2.getAverageRating()))
-                .subscribe(System.out::println, error -> System.err.println("Error: " + error.getMessage()));
-
+    // REQ 5
+    webClient.get()
+            .uri("/media")
+            .retrieve()
+            .bodyToFlux(Media.class)
+            .filter(m -> m.getReleaseDate().isAfter(LocalDate.of(1980, 1, 1)) &&
+                    m.getReleaseDate().isBefore(LocalDate.of(1989, 12, 31)))
+            .sort((m1, m2) -> Double.compare(m1.getAverageRating(), m2.getAverageRating()))
+            .doOnNext(System.out::println)
+            .doOnError(error -> System.err.println("Error: " + error.getMessage()))
+            .blockLast();
     }
 }
