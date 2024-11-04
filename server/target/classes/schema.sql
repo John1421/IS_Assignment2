@@ -2,7 +2,7 @@ CREATE TABLE IF NOT EXISTS media (
     id BIGSERIAL PRIMARY KEY,            
     title VARCHAR(255) NOT NULL UNIQUE,         
     release_date DATE NOT NULL,          
-    average_rating DECIMAL(4, 2) CHECK (average_rating >= 0 AND average_rating <= 10), 
+    average_rating DECIMAL(4, 2) CHECK (rating  >= 0 AND rating  <= 10), 
     type VARCHAR(10) NOT NULL CHECK (type IN ('MOVIE', 'TV_SHOW')) 
 );
 
@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS users (
 CREATE TABLE IF NOT EXISTS ratings (
     user_id BIGINT NOT NULL,
     media_id BIGINT NOT NULL,
-    rating DECIMAL(4, 2) NOT NULL CHECK (average_rating >= 0 AND average_rating <= 10),
+    rating DECIMAL(4, 2) NOT NULL CHECK (rating  >= 0 AND rating  <= 10),
     PRIMARY KEY (user_id, media_id),
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
     FOREIGN KEY (media_id) REFERENCES media(id) ON DELETE CASCADE

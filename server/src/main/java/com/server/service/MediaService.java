@@ -39,4 +39,13 @@ public class MediaService {
                     mediaRepository.deleteById(id);
                 });
     }
+
+    // public Flux<Long> getMediaRelationships(long id) {
+    // return mediaRepository
+    // .findById(id)
+    // .flatMap(media -> {
+    // // return Flux.just(media.getUsers())
+    // });
+    // }
+
 }
