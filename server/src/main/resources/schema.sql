@@ -2,7 +2,7 @@ CREATE TABLE IF NOT EXISTS media (
     id BIGSERIAL PRIMARY KEY,            
     title VARCHAR(255) NOT NULL UNIQUE,         
     release_date DATE NOT NULL,          
-    average_rating DECIMAL(4, 2) CHECK (rating  >= 0 AND rating  <= 10), 
+    average_rating DECIMAL(4, 2) CHECK (average_rating  >= 0 AND average_rating  <= 10), 
     type VARCHAR(10) NOT NULL CHECK (type IN ('MOVIE', 'TV_SHOW')) 
 );
 
