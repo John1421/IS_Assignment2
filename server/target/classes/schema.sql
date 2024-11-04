@@ -14,10 +14,12 @@ CREATE TABLE IF NOT EXISTS users (
 );
 
 CREATE TABLE IF NOT EXISTS ratings (
-	rating	 BIGINT NOT NULL,
-	FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
-    FOREIGN KEY (media_id) REFERENCES media(id) ON DELETE CASCADE 
-	PRIMARY KEY(users_id, media_id)
+    user_id BIGINT NOT NULL,
+    media_id BIGINT NOT NULL,
+    rating DECIMAL(4, 2) NOT NULL CHECK (average_rating >= 0 AND average_rating <= 10),
+    PRIMARY KEY (user_id, media_id),
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (media_id) REFERENCES media(id) ON DELETE CASCADE
 );
 
 ------------------------------------------------------------------USERS
@@ -104,132 +106,146 @@ INSERT INTO media (title, release_date, average_rating, type)
 VALUES ('Interstellar', '2014-11-07', 8.60, 'MOVIE')
 ON CONFLICT (title) DO NOTHING;
 
-INSERT INTO media (title, release_date, average_rating, type)
-VALUES ('The Silence of the Lambs', '1991-02-14', 8.60, 'MOVIE')
-ON CONFLICT (title) DO NOTHING;
+-- 1. The Shawshank Redemption (average rating: 9.30)
+INSERT INTO ratings (user_id, media_id, rating)
+VALUES 
+    (1, 1, 9.40),
+    (2, 1, 9.20),
+    (3, 1, 9.30),
+    (4, 1, 9.50),
+    (5, 1, 9.20);
 
-INSERT INTO media (title, release_date, average_rating, type)
-VALUES ('Saving Private Ryan', '1998-07-24', 8.60, 'MOVIE')
-ON CONFLICT (title) DO NOTHING;
+-- 2. The Godfather (average rating: 9.20)
+INSERT INTO ratings (user_id, media_id, rating)
+VALUES 
+    (1, 2, 9.10),
+    (2, 2, 9.30),
+    (3, 2, 9.20),
+    (4, 2, 9.00),
+    (5, 2, 9.40);
 
-INSERT INTO media (title, release_date, average_rating, type)
-VALUES ('The Green Mile', '1999-12-10', 8.60, 'MOVIE')
-ON CONFLICT (title) DO NOTHING;
+-- 3. The Dark Knight (average rating: 9.00)
+INSERT INTO ratings (user_id, media_id, rating)
+VALUES 
+    (1, 3, 9.10),
+    (2, 3, 9.00),
+    (3, 3, 8.90),
+    (4, 3, 9.20),
+    (5, 3, 8.80);
 
-INSERT INTO media (title, release_date, average_rating, type)
-VALUES ('Spirited Away', '2001-07-20', 8.60, 'MOVIE')
-ON CONFLICT (title) DO NOTHING;
+-- 4. 12 Angry Men (average rating: 8.90)
+INSERT INTO ratings (user_id, media_id, rating)
+VALUES 
+    (1, 4, 8.80),
+    (2, 4, 9.00),
+    (3, 4, 8.90),
+    (4, 4, 8.70),
+    (5, 4, 9.10);
 
-INSERT INTO media (title, release_date, average_rating, type)
-VALUES ('Parasite', '2019-05-30', 8.50, 'MOVIE')
-ON CONFLICT (title) DO NOTHING;
+-- 5. Schindler's List (average rating: 9.00)
+INSERT INTO ratings (user_id, media_id, rating)
+VALUES 
+    (1, 5, 9.10),
+    (2, 5, 9.00),
+    (3, 5, 9.00),
+    (4, 5, 8.90),
+    (5, 5, 9.20);
 
-----80s
+-- 6. The Lord of the Rings: The Return of the King (average rating: 9.00)
+INSERT INTO ratings (user_id, media_id, rating)
+VALUES 
+    (1, 6, 9.00),
+    (2, 6, 8.90),
+    (3, 6, 9.10),
+    (4, 6, 9.20),
+    (5, 6, 8.80);
 
-INSERT INTO media (title, release_date, average_rating, type)
-VALUES ('The Shining', '1980-05-23', 8.40, 'MOVIE')
-ON CONFLICT (title) DO NOTHING;
+-- 7. Pulp Fiction (average rating: 8.90)
+INSERT INTO ratings (user_id, media_id, rating)
+VALUES 
+    (1, 7, 8.80),
+    (2, 7, 9.00),
+    (3, 7, 8.90),
+    (4, 7, 8.70),
+    (5, 7, 9.00);
 
-INSERT INTO media (title, release_date, average_rating, type)
-VALUES ('Back to the Future', '1985-07-03', 8.50, 'MOVIE')
-ON CONFLICT (title) DO NOTHING;
+-- 8. The Good, the Bad and the Ugly (average rating: 8.80)
+INSERT INTO ratings (user_id, media_id, rating)
+VALUES 
+    (1, 8, 8.70),
+    (2, 8, 8.90),
+    (3, 8, 8.80),
+    (4, 8, 8.60),
+    (5, 8, 9.00);
 
-INSERT INTO media (title, release_date, average_rating, type)
-VALUES ('Blade Runner', '1982-06-25', 8.10, 'MOVIE')
-ON CONFLICT (title) DO NOTHING;
+-- 9. Fight Club (average rating: 8.80)
+INSERT INTO ratings (user_id, media_id, rating)
+VALUES 
+    (1, 9, 8.70),
+    (2, 9, 8.80),
+    (3, 9, 8.90),
+    (4, 9, 8.60),
+    (5, 9, 8.90);
 
-------------------------------------------------------------------TV_SHOWS
+-- 10. Forrest Gump (average rating: 8.80)
+INSERT INTO ratings (user_id, media_id, rating)
+VALUES 
+    (1, 10, 8.90),
+    (2, 10, 8.80),
+    (3, 10, 8.70),
+    (4, 10, 8.90),
+    (5, 10, 8.80);
 
-INSERT INTO media (title, release_date, average_rating, type)
-VALUES ('Breaking Bad', '2008-01-20', 9.50, 'TV_SHOW')
-ON CONFLICT (title) DO NOTHING;
+-- 11. Inception (average rating: 8.80)
+INSERT INTO ratings (user_id, media_id, rating)
+VALUES 
+    (1, 11, 8.80),
+    (2, 11, 8.90),
+    (3, 11, 8.70),
+    (4, 11, 8.80),
+    (5, 11, 8.90);
 
-INSERT INTO media (title, release_date, average_rating, type)
-VALUES ('Game of Thrones', '2011-04-17', 9.20, 'TV_SHOW')
-ON CONFLICT (title) DO NOTHING;
+-- 12. The Matrix (average rating: 8.70)
+INSERT INTO ratings (user_id, media_id, rating)
+VALUES 
+    (1, 12, 8.80),
+    (2, 12, 8.70),
+    (3, 12, 8.60),
+    (4, 12, 8.70),
+    (5, 12, 8.80);
 
-INSERT INTO media (title, release_date, average_rating, type)
-VALUES ('The Wire', '2002-06-02', 9.30, 'TV_SHOW')
-ON CONFLICT (title) DO NOTHING;
+-- 13. Goodfellas (average rating: 8.70)
+INSERT INTO ratings (user_id, media_id, rating)
+VALUES 
+    (1, 13, 8.70),
+    (2, 13, 8.60),
+    (3, 13, 8.80),
+    (4, 13, 8.70),
+    (5, 13, 8.70);
 
-INSERT INTO media (title, release_date, average_rating, type)
-VALUES ('Friends', '1994-09-22', 8.90, 'TV_SHOW')
-ON CONFLICT (title) DO NOTHING;
+-- 14. Star Wars: Episode V - The Empire Strikes Back (average rating: 8.70)
+INSERT INTO ratings (user_id, media_id, rating)
+VALUES 
+    (1, 14, 8.60),
+    (2, 14, 8.80),
+    (3, 14, 8.70),
+    (4, 14, 8.80),
+    (5, 14, 8.60);
 
-INSERT INTO media (title, release_date, average_rating, type)
-VALUES ('The Sopranos', '1999-01-10', 9.20, 'TV_SHOW')
-ON CONFLICT (title) DO NOTHING;
+-- 15. Interstellar (average rating: 8.60)
+INSERT INTO ratings (user_id, media_id, rating)
+VALUES 
+    (1, 15, 8.50),
+    (2, 15, 8.70),
+    (3, 15, 8.60),
+    (4, 15, 8.60),
+    (5, 15, 8.70);
 
-INSERT INTO media (title, release_date, average_rating, type)
-VALUES ('Sherlock', '2010-07-25', 9.10, 'TV_SHOW')
-ON CONFLICT (title) DO NOTHING;
 
-INSERT INTO media (title, release_date, average_rating, type)
-VALUES ('Stranger Things', '2016-07-15', 8.70, 'TV_SHOW')
-ON CONFLICT (title) DO NOTHING;
-
-INSERT INTO media (title, release_date, average_rating, type)
-VALUES ('The Office', '2005-03-24', 9.00, 'TV_SHOW')
-ON CONFLICT (title) DO NOTHING;
-
-INSERT INTO media (title, release_date, average_rating, type)
-VALUES ('The Mandalorian', '2019-11-12', 8.80, 'TV_SHOW')
-ON CONFLICT (title) DO NOTHING;
-
-INSERT INTO media (title, release_date, average_rating, type)
-VALUES ('The Boys', '2019-07-26', 8.70, 'TV_SHOW')
-ON CONFLICT (title) DO NOTHING;
-
-INSERT INTO media (title, release_date, average_rating, type)
-VALUES ('Black Mirror', '2011-12-04', 8.80, 'TV_SHOW')
-ON CONFLICT (title) DO NOTHING;
-
-INSERT INTO media (title, release_date, average_rating, type)
-VALUES ('The Crown', '2016-11-04', 8.60, 'TV_SHOW')
-ON CONFLICT (title) DO NOTHING;
-
-INSERT INTO media (title, release_date, average_rating, type)
-VALUES ('True Detective', '2014-01-12', 8.90, 'TV_SHOW')
-ON CONFLICT (title) DO NOTHING;
-
-INSERT INTO media (title, release_date, average_rating, type)
-VALUES ('The Walking Dead', '2010-10-31', 8.10, 'TV_SHOW')
-ON CONFLICT (title) DO NOTHING;
-
-INSERT INTO media (title, release_date, average_rating, type)
-VALUES ('Better Call Saul', '2015-02-08', 8.90, 'TV_SHOW')
-ON CONFLICT (title) DO NOTHING;
-
-INSERT INTO media (title, release_date, average_rating, type)
-VALUES ('House of Cards', '2013-02-01', 8.70, 'TV_SHOW')
-ON CONFLICT (title) DO NOTHING;
-
-INSERT INTO media (title, release_date, average_rating, type)
-VALUES ('Westworld', '2016-10-02', 8.50, 'TV_SHOW')
-ON CONFLICT (title) DO NOTHING;
-
-INSERT INTO media (title, release_date, average_rating, type)
-VALUES ('Rick and Morty', '2013-12-02', 9.10, 'TV_SHOW')
-ON CONFLICT (title) DO NOTHING;
-
-INSERT INTO media (title, release_date, average_rating, type)
-VALUES ('Narcos', '2015-08-28', 8.80, 'TV_SHOW')
-ON CONFLICT (title) DO NOTHING;
-
-INSERT INTO media (title, release_date, average_rating, type)
-VALUES ('Chernobyl', '2019-05-06', 9.40, 'TV_SHOW')
-ON CONFLICT (title) DO NOTHING;
-
-----80s
-
-INSERT INTO media (title, release_date, average_rating, type)
-VALUES ('Miami Vice', '1984-09-16', 7.50, 'TV_SHOW')
-ON CONFLICT (title) DO NOTHING;
-
-INSERT INTO media (title, release_date, average_rating, type)
-VALUES ('The A-Team', '1983-01-23', 7.50, 'TV_SHOW')
-ON CONFLICT (title) DO NOTHING;
-
-INSERT INTO media (title, release_date, average_rating, type)
-VALUES ('Magnum, P.I.', '1980-12-11', 7.50, 'TV_SHOW')
-ON CONFLICT (title) DO NOTHING;
+UPDATE media
+SET average_rating = (
+    SELECT ROUND(AVG(rating), 2)
+    FROM ratings
+    WHERE ratings.media_id = media.id
+)
+WHERE id IN (SELECT DISTINCT media_id FROM ratings);

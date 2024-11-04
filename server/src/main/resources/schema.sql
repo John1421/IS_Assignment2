@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS users (
 CREATE TABLE IF NOT EXISTS ratings (
     user_id BIGINT NOT NULL,
     media_id BIGINT NOT NULL,
-    rating DECIMAL(4, 2) NOT NULL,
+    rating DECIMAL(4, 2) NOT NULL CHECK (average_rating >= 0 AND average_rating <= 10),
     PRIMARY KEY (user_id, media_id),
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
     FOREIGN KEY (media_id) REFERENCES media(id) ON DELETE CASCADE
