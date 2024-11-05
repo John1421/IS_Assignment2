@@ -16,5 +16,4 @@ public class Rating {
     private long userId;
     private long mediaId;
     private double rating;
-    private String userName;
 }
