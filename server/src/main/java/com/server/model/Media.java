@@ -19,7 +19,6 @@ public class Media {
     private LocalDate releaseDate;
     private double averageRating;
     private MediaType type;
-    private List<Long> users;
 
     public enum MediaType {
         MOVIE, TV_SHOW

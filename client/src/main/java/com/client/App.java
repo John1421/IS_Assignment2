@@ -38,7 +38,7 @@ public class App implements CommandLineRunner {
                 .retrieve()
                 .bodyToFlux(Media.class)
                 .doOnNext(media -> writer.println("Title: " + media.getTitle() + ", Release Date: " + media.getReleaseDate()))
-                .doOnError(error -> writer.println("Error!!!"))
+                .doOnError(error -> writer.println("Error: " + error.toString()))
                 .blockLast();
             
             writer.println("---------------------REQ 2------------------------");
@@ -88,8 +88,46 @@ public class App implements CommandLineRunner {
                 .doOnError(error -> writer.println("Error: " + error.getMessage()))
                 .blockLast();
             
+            writer.println("---------------------REQ 8------------------------");
+
+            webClient.get()
+                .uri("/media")
+                .retrieve()
+                .bodyToFlux(Media.class)
+                .flatMap(media -> webClient.get()
+                        .uri("/media/{id}/users", media.getId())
+                        .retrieve()
+                        .bodyToFlux(Long.class)
+                        .collectList()
+                        .map(users -> new MediaUserCount(media.getId(), users.size())))
+                .collectList()
+                .flatMap(mediaUserCounts -> {
+                    int totalMediaItems = mediaUserCounts.size();
+                    int totalUserCount = mediaUserCounts.stream().mapToInt(MediaUserCount::getUserCount).sum();
+                    double averageUsersPerMedia = totalMediaItems == 0 ? 0 : (double) totalUserCount / totalMediaItems;
+
+                    writer.println("Average number of users per media item: " + averageUsersPerMedia);
+                    return Mono.just(averageUsersPerMedia);
+                })
+                .block();
+
         } catch (IOException e) {
             System.err.println("Failed to write to output file: " + e.getMessage());
+        }
+    }
+
+    // Helper class to keep track of media and user count
+    private static class MediaUserCount {
+        private long mediaId;
+        private int userCount;
+
+        public MediaUserCount(long mediaId, int userCount) {
+            this.mediaId = mediaId;
+            this.userCount = userCount;
+        }
+
+        public int getUserCount() {
+            return userCount;
         }
     }
 }

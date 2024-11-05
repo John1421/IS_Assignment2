@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.server.model.Media;
+import com.server.repository.RatingRepository;
 import com.server.service.MediaService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -24,6 +25,9 @@ public class MediaController {
 
     @Autowired
     private MediaService mediaService;
+
+    @Autowired
+    private RatingRepository ratingRepository;
 
     // Get all media
     @GetMapping
@@ -42,6 +46,12 @@ public class MediaController {
         return mediaService.getMediaById(id)
                 .doOnNext(media -> log.info("Found media: {}", media))
                 .doOnError(e -> log.error("Error fetching media with ID {}: {}", id, e.getMessage()));
+    }
+
+    @GetMapping("/{mediaId}/users")
+    public Flux<Long> getUsersByMediaId(@PathVariable("mediaId") Long mediaId) {
+        return ratingRepository.findByMediaId(mediaId)
+                .map(userMedia -> userMedia.getUserId());
     }
 
     // Create new media
