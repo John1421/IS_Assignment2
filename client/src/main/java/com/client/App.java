@@ -29,87 +29,102 @@ public class App implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        // Write output to a file
+
         try (PrintWriter writer = new PrintWriter(new FileWriter("output.txt"))) {
-            
+
             writer.println("---------------------REQ 1------------------------");
             webClient.get()
-                .uri("/media")
-                .retrieve()
-                .bodyToFlux(Media.class)
-                .doOnNext(media -> writer.println("Title: " + media.getTitle() + ", Release Date: " + media.getReleaseDate()))
-                .doOnError(error -> writer.println("Error: " + error.toString()))
-                .blockLast();
-            
+                    .uri("/media")
+                    .retrieve()
+                    .bodyToFlux(Media.class)
+                    .doOnNext(media -> writer
+                            .println("Title: " + media.getTitle() + ", Release Date: " + media.getReleaseDate()))
+                    .doOnError(error -> writer.println("Error: " + error.toString()))
+                    .blockLast();
+
             writer.println("---------------------REQ 2------------------------");
 
             int totalMediaCount = webClient.get()
-                .uri("/media")
-                .retrieve()
-                .bodyToFlux(Media.class)
-                .collectList()
-                .flatMap(m -> Mono.just(m.size()))
-                .block();
+                    .uri("/media")
+                    .retrieve()
+                    .bodyToFlux(Media.class)
+                    .collectList()
+                    .flatMap(m -> Mono.just(m.size()))
+                    .block();
             writer.println("Total Media Count: " + totalMediaCount);
-            
+
             writer.println("---------------------REQ 3------------------------");
 
             int reallyGoodMediaCount = webClient.get()
-                .uri("/media")
-                .retrieve()
-                .bodyToFlux(Media.class)
-                .filter(m -> m.getAverageRating() > 8)
-                .collectList()
-                .flatMap(m -> Mono.just(m.size()))
-                .block();
+                    .uri("/media")
+                    .retrieve()
+                    .bodyToFlux(Media.class)
+                    .filter(m -> m.getAverageRating() > 8)
+                    .collectList()
+                    .flatMap(m -> Mono.just(m.size()))
+                    .block();
             writer.println("Total Really Good Media Count (Rating > 8): " + reallyGoodMediaCount);
 
             writer.println("---------------------REQ 4------------------------");
 
             int mediaCount = webClient.get()
-                .uri("/media")
-                .retrieve()
-                .bodyToFlux(Media.class)
-                .collectList()
-                .flatMap(m -> Mono.just(m.size()))
-                .block();
+                    .uri("/media")
+                    .retrieve()
+                    .bodyToFlux(Media.class)
+                    .collectList()
+                    .flatMap(m -> Mono.just(m.size()))
+                    .block();
             writer.println("Media Count: " + mediaCount);
 
             writer.println("---------------------REQ 5------------------------");
 
             webClient.get()
-                .uri("/media")
-                .retrieve()
-                .bodyToFlux(Media.class)
-                .filter(m -> m.getReleaseDate().isAfter(LocalDate.of(1980, 1, 1)) &&
-                        m.getReleaseDate().isBefore(LocalDate.of(1989, 12, 31)))
-                .sort((m1, m2) -> Double.compare(m1.getAverageRating(), m2.getAverageRating()))
-                .doOnNext(writer::println)
-                .doOnError(error -> writer.println("Error: " + error.getMessage()))
-                .blockLast();
-            
-            writer.println("---------------------REQ 8------------------------");
+                    .uri("/media")
+                    .retrieve()
+                    .bodyToFlux(Media.class)
+                    .filter(m -> m.getReleaseDate().isAfter(LocalDate.of(1980, 1, 1)) &&
+                            m.getReleaseDate().isBefore(LocalDate.of(1989, 12, 31)))
+                    .sort((m1, m2) -> Double.compare(m1.getAverageRating(), m2.getAverageRating()))
+                    .doOnNext(writer::println)
+                    .doOnError(error -> writer.println("Error: " + error.getMessage()))
+                    .subscribe();
+
+            writer.println("---------------------REQ 7------------------------");
 
             webClient.get()
-                .uri("/media")
-                .retrieve()
-                .bodyToFlux(Media.class)
-                .flatMap(media -> webClient.get()
-                        .uri("/media/{id}/users", media.getId())
-                        .retrieve()
-                        .bodyToFlux(Long.class)
-                        .collectList()
-                        .map(users -> new MediaUserCount(media.getId(), users.size())))
-                .collectList()
-                .flatMap(mediaUserCounts -> {
-                    int totalMediaItems = mediaUserCounts.size();
-                    int totalUserCount = mediaUserCounts.stream().mapToInt(MediaUserCount::getUserCount).sum();
-                    double averageUsersPerMedia = totalMediaItems == 0 ? 0 : (double) totalUserCount / totalMediaItems;
+                    .uri("/media")
+                    .retrieve()
+                    .bodyToFlux(Media.class)
+                    .reduce((m1, m2) -> m1.getReleaseDate().isBefore(m2.getReleaseDate()) ? m1 : m2)
+                    // .doOnNext(writer::println)
+                    .doOnError(error -> writer.println("Error: " + error.getMessage()))
+                    .subscribe(writer::println);
 
-                    writer.println("Average number of users per media item: " + averageUsersPerMedia);
-                    return Mono.just(averageUsersPerMedia);
-                })
-                .block();
+            // writer.println("---------------------REQ 8------------------------");
+
+            // webClient.get()
+            // .uri("/media")
+            // .retrieve()
+            // .bodyToFlux(Media.class)
+            // .flatMap(media -> webClient.get()
+            // .uri("/media/{id}/users", media.getId())
+            // .retrieve()
+            // .bodyToFlux(Long.class)
+            // .collectList()
+            // .map(users -> new MediaUserCount(media.getId(), users.size())))
+            // .collectList()
+            // .flatMap(mediaUserCounts -> {
+            // int totalMediaItems = mediaUserCounts.size();
+            // int totalUserCount =
+            // mediaUserCounts.stream().mapToInt(MediaUserCount::getUserCount).sum();
+            // double averageUsersPerMedia = totalMediaItems == 0 ? 0 : (double)
+            // totalUserCount / totalMediaItems;
+
+            // writer.println("Average number of users per media item: " +
+            // averageUsersPerMedia);
+            // return Mono.just(averageUsersPerMedia);
+            // })
+            // .block();
 
         } catch (IOException e) {
             System.err.println("Failed to write to output file: " + e.getMessage());
