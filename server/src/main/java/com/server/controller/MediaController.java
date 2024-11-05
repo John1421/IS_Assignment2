@@ -81,9 +81,4 @@ public class MediaController {
                 .doOnError(e -> log.error("Error deleting media with ID {}: {}", id, e.getMessage()));
     }
 
-    // @GetMapping("/{id}/rel")
-    // private Flux<Long> readRelationship(@PathVariable("id") long id) {
-    // log.info("Received request to fetch relationships of media with ID: {}", id);
-    // return mediaService.;
-    // }
 }
