@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.server.model.Media;
 import com.server.repository.MediaRepository;
-import com.server.repository.RatingRepository;
+import com.server.repository.RelationshipRepository;
 
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -17,7 +17,7 @@ public class MediaService {
     private MediaRepository mediaRepository;
 
     @Autowired
-    private RatingRepository ratingRepository;
+    private RelationshipRepository relationshipRepository;
 
     public Mono<Media> createMedia(Media media) {
         return mediaRepository.save(media);
@@ -44,6 +44,6 @@ public class MediaService {
     }
 
     public Flux<Long> getUsersByMediaId(long id) {
-        return ratingRepository.findByMediaId(id).map(r -> r.getUserId());
+        return relationshipRepository.findByMediaId(id).map(r -> r.getUserId());
     }
 }

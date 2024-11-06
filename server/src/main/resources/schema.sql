@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS users (
     gender VARCHAR(10) NOT NULL CHECK (gender IN ('MALE', 'FEMALE', 'OTHER'))
 );
 
-CREATE TABLE IF NOT EXISTS ratings (
+CREATE TABLE IF NOT EXISTS relationships (
     user_id BIGINT NOT NULL,
     media_id BIGINT NOT NULL,
     PRIMARY KEY (user_id, media_id),
@@ -63,7 +63,7 @@ VALUES
 ON CONFLICT DO NOTHING;
 
 -- Insert relationships between users and media items, ordered by media_id
-INSERT INTO ratings (user_id, media_id) VALUES
+INSERT INTO relationships (user_id, media_id) VALUES
     (1, 1),  -- Alice -> Back to the Future
     (2, 1),  -- Bob -> Back to the Future
     (1, 2),  -- Alice -> The Terminator
