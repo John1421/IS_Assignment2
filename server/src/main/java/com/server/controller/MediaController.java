@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.server.model.Media;
+import com.server.model.Relationship;
 import com.server.service.MediaService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -79,6 +80,12 @@ public class MediaController {
         return mediaService.deleteMedia(id)
                 .doOnSuccess(unused -> log.info("Successfully deleted media with ID {}", id))
                 .doOnError(e -> log.error("Error deleting media with ID {}: {}", id, e.getMessage()));
+    }
+
+    @DeleteMapping("/{mediaId}/{userId}")
+    public Mono<Relationship> deleteRelationship(@PathVariable("mediaId") Long mediaId,
+            @PathVariable("userId") Long userId) {
+        return mediaService.deleteRelationship(mediaId, userId);
     }
 
 }

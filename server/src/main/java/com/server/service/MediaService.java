@@ -52,8 +52,14 @@ public class MediaService {
         return relationshipRepository.save(relationship);
     }
 
-    // public Mono<Relationship> deleteRelationship(Relationship relationship) {
-    // return relationshipRepository.findAllById(relationship.);
-    // .delete(relationship);
-    // }
+    public Mono<Relationship> deleteRelationship(long mediaId, long userId) {
+        return relationshipRepository.findAllById(Flux.just(mediaId))
+                .filter(rel -> rel.getUserId() == userId)
+                .next()
+                .flatMap(rel -> {
+                    relationshipRepository.delete(rel);
+                    return Mono.just(rel);
+                });
+    }
+
 }
