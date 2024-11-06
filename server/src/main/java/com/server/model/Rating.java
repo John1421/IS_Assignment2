@@ -15,5 +15,4 @@ public class Rating {
     @Id
     private long userId;
     private long mediaId;
-    private double rating;
 }

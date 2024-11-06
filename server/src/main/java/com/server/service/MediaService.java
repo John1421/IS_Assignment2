@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.server.model.Media;
-import com.server.model.Rating;
 import com.server.repository.MediaRepository;
 import com.server.repository.RatingRepository;
 
@@ -28,23 +27,8 @@ public class MediaService {
         return mediaRepository.findAll();
     }
 
-    /* public Mono<Media> getMediaById(long id) {
-        return mediaRepository.findById(id);
-    } */
-
     public Mono<Media> getMediaById(long id) {
-        Mono<Media> mediaMono = mediaRepository.findById(id);
-        Flux<Rating> ratingsFlux = ratingRepository.findByMediaId(id);
-        Flux<Double> ratingsValuesFlux = ratingsFlux.map(Rating::getRating);
-        Flux<Long> userIdsFlux = ratingsFlux.map(Rating::getUserId);
-
-        return mediaMono.zipWith(ratingsValuesFlux.collectList(), (media, ratings) -> {
-            media.setRatings(ratings);
-            return media;
-        }).zipWith(userIdsFlux.collectList(), (media, userIds) -> {
-            media.setUserIds(userIds);
-            return media;
-        });
+        return mediaRepository.findById(id);
     }
 
     public Mono<Media> updateMedia(Media media) {
@@ -53,19 +37,13 @@ public class MediaService {
     }
 
     public Mono<Media> deleteMedia(long id) {
-
         return getMediaById(id)
                 .doOnSuccess(m -> {
                     mediaRepository.deleteById(id);
                 });
     }
 
-    // public Flux<Long> getMediaRelationships(long id) {
-    // return mediaRepository
-    // .findById(id)
-    // .flatMap(media -> {
-    // // return Flux.just(media.getUsers())
-    // });
-    // }
-
+    public Flux<Long> getUsersByMediaId(long id) {
+        return ratingRepository.findByMediaId(id).map(r -> r.getUserId());
+    }
 }
