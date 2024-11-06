@@ -1,9 +1,8 @@
 package com.client;
 
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
 import java.time.LocalDate;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -11,7 +10,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
-import reactor.core.publisher.Mono;
 
 /**
  * The main application class that runs a Spring Boot application as a
@@ -133,6 +131,13 @@ public class App implements CommandLineRunner {
                 .uri("/media")
                 .retrieve()
                 .bodyToFlux(Media.class)
+                .filter(m -> {
+                    return webClient.get()
+                            .uri("/media/" + m.getId() + "/users")
+                            .retrieve()
+                            .bodyToFlux(Long.class)
+                            .count().block() > 0;
+                })
                 .count()
                 .map(count -> "Media Count: " + count)
                 .flux()
@@ -218,13 +223,10 @@ public class App implements CommandLineRunner {
      * @param content  - The content to write to the file
      */
     private void writeToFile(String filePath, String content) {
-        Mono.fromRunnable(() -> {
-            try {
-                Files.writeString(Paths.get(filePath), content + System.lineSeparator(),
-                        StandardOpenOption.CREATE, StandardOpenOption.APPEND);
-            } catch (IOException e) {
-                System.err.println("Failed to write to output file: " + e.getMessage());
-            }
-        }).subscribe();
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+            writer.write(content);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
