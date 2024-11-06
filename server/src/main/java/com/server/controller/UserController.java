@@ -44,11 +44,6 @@ public class UserController {
                 .doOnError(e -> log.error("Error fetching user with ID {}: {}", id, e.getMessage()));
     }
 
-    @GetMapping("/{id}/medias")
-    public Flux<Long> getMediasByUserId(@PathVariable("id") Long id) {
-        return userService.getMediasByUserId(id);
-    }
-
     // Create new user
     @PostMapping
     public Mono<User> createUser(@RequestBody User user) {

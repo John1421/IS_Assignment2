@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.server.model.Media;
+import com.server.model.Relationship;
 import com.server.repository.MediaRepository;
 import com.server.repository.RelationshipRepository;
 
@@ -44,6 +45,15 @@ public class MediaService {
     }
 
     public Flux<Long> getUsersByMediaId(long id) {
-        return relationshipRepository.findByMediaId(id).map(r -> r.getUserId());
+        return relationshipRepository.findAllById(Flux.just(id)).map(r -> r.getUserId());
     }
+
+    public Mono<Relationship> createRelationship(Relationship relationship) {
+        return relationshipRepository.save(relationship);
+    }
+
+    // public Mono<Relationship> deleteRelationship(Relationship relationship) {
+    // return relationshipRepository.findAllById(relationship.);
+    // .delete(relationship);
+    // }
 }

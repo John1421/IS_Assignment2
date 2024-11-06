@@ -13,6 +13,6 @@ import lombok.NoArgsConstructor;
 @Table("relationships")
 public class Relationship {
     @Id
-    private long userId;
     private long mediaId;
+    private long userId;
 }

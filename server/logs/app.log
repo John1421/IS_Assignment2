@@ -6,3 +6,23 @@
 2024-11-06T11:55:45.052Z  INFO 1049 --- [main] com.server.ServerApplication             : Started ServerApplication in 6.199 seconds (process running for 6.984)
 2024-11-06T11:55:50.201Z  INFO 1049 --- [reactor-http-epoll-2] com.server.controller.MediaController    : Received request to fetch all media.
 2024-11-06T11:55:51.253Z  INFO 1049 --- [reactor-http-epoll-2] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-06T19:05:32.741Z  INFO 47093 --- [main] com.server.ServerApplication             : Starting ServerApplication using Java 21.0.4 with PID 47093 (/workspace/target/classes started by dev in /workspace)
+2024-11-06T19:05:32.747Z  INFO 47093 --- [main] com.server.ServerApplication             : No active profile set, falling back to 1 default profile: "default"
+2024-11-06T19:05:34.293Z  INFO 47093 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data R2DBC repositories in DEFAULT mode.
+2024-11-06T19:05:34.366Z  INFO 47093 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 54 ms. Found 0 R2DBC repository interfaces.
+2024-11-06T19:05:40.019Z  INFO 47093 --- [main] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 8080 (http)
+2024-11-06T19:05:40.052Z  INFO 47093 --- [main] com.server.ServerApplication             : Started ServerApplication in 8.81 seconds (process running for 9.715)
+2024-11-06T19:08:00.223Z  INFO 48196 --- [main] com.server.ServerApplication             : Starting ServerApplication using Java 21.0.4 with PID 48196 (/workspace/target/classes started by dev in /workspace)
+2024-11-06T19:08:00.227Z  INFO 48196 --- [main] com.server.ServerApplication             : No active profile set, falling back to 1 default profile: "default"
+2024-11-06T19:08:02.022Z  INFO 48196 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data R2DBC repositories in DEFAULT mode.
+2024-11-06T19:08:02.643Z  INFO 48196 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 605 ms. Found 3 R2DBC repository interfaces.
+2024-11-06T19:08:07.879Z  INFO 48196 --- [main] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 8080 (http)
+2024-11-06T19:08:07.898Z  INFO 48196 --- [main] com.server.ServerApplication             : Started ServerApplication in 9.085 seconds (process running for 10.101)
+2024-11-06T19:08:16.806Z  INFO 48196 --- [reactor-http-epoll-2] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-06T19:08:17.484Z  INFO 48196 --- [reactor-http-epoll-2] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-06T19:12:28.880Z  INFO 49873 --- [main] com.server.ServerApplication             : Starting ServerApplication using Java 21.0.4 with PID 49873 (/workspace/target/classes started by dev in /workspace)
+2024-11-06T19:12:28.884Z  INFO 49873 --- [main] com.server.ServerApplication             : No active profile set, falling back to 1 default profile: "default"
+2024-11-06T19:12:30.667Z  INFO 49873 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data R2DBC repositories in DEFAULT mode.
+2024-11-06T19:12:31.345Z  INFO 49873 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 663 ms. Found 3 R2DBC repository interfaces.
+2024-11-06T19:12:36.798Z  INFO 49873 --- [main] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 8080 (http)
+2024-11-06T19:12:36.816Z  INFO 49873 --- [main] com.server.ServerApplication             : Started ServerApplication in 9.419 seconds (process running for 10.327)

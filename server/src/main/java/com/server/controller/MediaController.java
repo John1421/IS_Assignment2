@@ -58,6 +58,11 @@ public class MediaController {
                 .doOnError(e -> log.error("Error creating media: {}", e.getMessage()));
     }
 
+    @PostMapping("/users")
+    public Flux<Long> createRelationship(@PathVariable("id") Long id) {
+        return mediaService.getUsersByMediaId(id);
+    }
+
     // Update existing media by ID
     @PutMapping("/{id}")
     private Mono<Media> updateMedia(@PathVariable("id") long id, @RequestBody Media updatedMedia) {
