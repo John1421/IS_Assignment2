@@ -49,7 +49,7 @@ public class UserController {
     public Mono<User> createUser(@RequestBody User user) {
         log.info("Received request to create new user: {}", user);
         return userService.createUser(user)
-                .doOnSuccess(createdUsers -> log.info("Successfully created user: {}", createdUsers))
+                .doOnSuccess(createdUser -> log.info("Successfully created user: {}", createdUser))
                 .doOnError(e -> log.error("Error creating user: {}", e.getMessage()));
     }
 
@@ -67,7 +67,7 @@ public class UserController {
     public Mono<User> deleteUser(@PathVariable("id") long id) {
         log.info("Received request to delete user with ID: {}", id);
         return userService.deleteUser(id)
-                .doOnSuccess(unused -> log.info("Successfully deleted user with ID {}", id))
+                .doOnSuccess(deletedUser -> log.info("Successfully deleted user: {}", deletedUser))
                 .doOnError(e -> log.error("Error deleting user with ID {}: {}", id, e.getMessage()));
     }
 }

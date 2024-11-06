@@ -32,7 +32,7 @@ public class MediaController {
         log.info("Received request to fetch all media.");
         return mediaService.getAllMedia()
                 .doOnNext(media -> log.debug("Fetched media item: {}", media))
-                .doOnError(error -> log.error("Error fetching all media: {}", error))
+                .doOnError(e -> log.error("Error fetching all media: {}", e.getMessage()))
                 .doOnComplete(() -> log.info("Completed fetching all media."));
     }
 
@@ -47,7 +47,12 @@ public class MediaController {
 
     @GetMapping("/{id}/users")
     public Flux<Long> getUsersByMediaId(@PathVariable("id") Long id) {
-        return mediaService.getUsersByMediaId(id);
+        log.info("Received request to fetch users subscribed to media with ID: {}", id);
+        return mediaService.getUsersByMediaId(id)
+                .doOnNext(userId -> log.debug("Fetched user with id: {}", userId))
+                .doOnError(
+                        e -> log.error("Error fetching users subscribed to media with ID {}: {}", id, e.getMessage()))
+                .doOnComplete(() -> log.info("Completed fetching users subscribed to media with ID: {}", id));
     }
 
     // Create new media
@@ -60,8 +65,12 @@ public class MediaController {
     }
 
     @PostMapping("/users")
-    public Flux<Long> createRelationship(@PathVariable("id") Long id) {
-        return mediaService.getUsersByMediaId(id);
+    public Mono<Relationship> createRelationship(@RequestBody Relationship relationship) {
+        log.info("Received request to create new relationship: {}", relationship);
+        return mediaService.createRelationship(relationship)
+                .doOnSuccess(
+                        createdRelationship -> log.info("Successfully created relationship: {}", createdRelationship))
+                .doOnError(e -> log.error("Error creating relationship: {}", e.getMessage()));
     }
 
     // Update existing media by ID
@@ -78,14 +87,19 @@ public class MediaController {
     private Mono<Media> deleteMedia(@PathVariable("id") long id) {
         log.info("Received request to delete media with ID: {}", id);
         return mediaService.deleteMedia(id)
-                .doOnSuccess(unused -> log.info("Successfully deleted media with ID {}", id))
+                .doOnSuccess(deletedMedia -> log.info("Successfully deleted media: {}", deletedMedia))
                 .doOnError(e -> log.error("Error deleting media with ID {}: {}", id, e.getMessage()));
     }
 
     @DeleteMapping("/{mediaId}/{userId}")
     public Mono<Relationship> deleteRelationship(@PathVariable("mediaId") Long mediaId,
             @PathVariable("userId") Long userId) {
-        return mediaService.deleteRelationship(mediaId, userId);
+        log.info("Received request to delete relationship: {}", new Relationship(mediaId, userId));
+        return mediaService.deleteRelationship(mediaId, userId)
+                .doOnSuccess(
+                        deletedRelationship -> log.info("Successfully deleted relationship: {}", deletedRelationship))
+                .doOnError(e -> log.error("Error deleting relationship {}: {}", new Relationship(mediaId, userId),
+                        e.getMessage()));
     }
 
 }
