@@ -1,28 +1,796 @@
-2024-11-06T11:55:39.917Z  INFO 1049 --- [main] com.server.ServerApplication             : Starting ServerApplication using Java 21.0.4 with PID 1049 (/workspace/target/classes started by dev in /workspace)
-2024-11-06T11:55:39.938Z  INFO 1049 --- [main] com.server.ServerApplication             : No active profile set, falling back to 1 default profile: "default"
-2024-11-06T11:55:41.322Z  INFO 1049 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data R2DBC repositories in DEFAULT mode.
-2024-11-06T11:55:41.846Z  INFO 1049 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 508 ms. Found 3 R2DBC repository interfaces.
-2024-11-06T11:55:45.017Z  INFO 1049 --- [main] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 8080 (http)
-2024-11-06T11:55:45.052Z  INFO 1049 --- [main] com.server.ServerApplication             : Started ServerApplication in 6.199 seconds (process running for 6.984)
-2024-11-06T11:55:50.201Z  INFO 1049 --- [reactor-http-epoll-2] com.server.controller.MediaController    : Received request to fetch all media.
-2024-11-06T11:55:51.253Z  INFO 1049 --- [reactor-http-epoll-2] com.server.controller.MediaController    : Completed fetching all media.
-2024-11-06T19:05:32.741Z  INFO 47093 --- [main] com.server.ServerApplication             : Starting ServerApplication using Java 21.0.4 with PID 47093 (/workspace/target/classes started by dev in /workspace)
-2024-11-06T19:05:32.747Z  INFO 47093 --- [main] com.server.ServerApplication             : No active profile set, falling back to 1 default profile: "default"
-2024-11-06T19:05:34.293Z  INFO 47093 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data R2DBC repositories in DEFAULT mode.
-2024-11-06T19:05:34.366Z  INFO 47093 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 54 ms. Found 0 R2DBC repository interfaces.
-2024-11-06T19:05:40.019Z  INFO 47093 --- [main] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 8080 (http)
-2024-11-06T19:05:40.052Z  INFO 47093 --- [main] com.server.ServerApplication             : Started ServerApplication in 8.81 seconds (process running for 9.715)
-2024-11-06T19:08:00.223Z  INFO 48196 --- [main] com.server.ServerApplication             : Starting ServerApplication using Java 21.0.4 with PID 48196 (/workspace/target/classes started by dev in /workspace)
-2024-11-06T19:08:00.227Z  INFO 48196 --- [main] com.server.ServerApplication             : No active profile set, falling back to 1 default profile: "default"
-2024-11-06T19:08:02.022Z  INFO 48196 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data R2DBC repositories in DEFAULT mode.
-2024-11-06T19:08:02.643Z  INFO 48196 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 605 ms. Found 3 R2DBC repository interfaces.
-2024-11-06T19:08:07.879Z  INFO 48196 --- [main] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 8080 (http)
-2024-11-06T19:08:07.898Z  INFO 48196 --- [main] com.server.ServerApplication             : Started ServerApplication in 9.085 seconds (process running for 10.101)
-2024-11-06T19:08:16.806Z  INFO 48196 --- [reactor-http-epoll-2] com.server.controller.MediaController    : Received request to fetch all media.
-2024-11-06T19:08:17.484Z  INFO 48196 --- [reactor-http-epoll-2] com.server.controller.MediaController    : Completed fetching all media.
-2024-11-06T19:12:28.880Z  INFO 49873 --- [main] com.server.ServerApplication             : Starting ServerApplication using Java 21.0.4 with PID 49873 (/workspace/target/classes started by dev in /workspace)
-2024-11-06T19:12:28.884Z  INFO 49873 --- [main] com.server.ServerApplication             : No active profile set, falling back to 1 default profile: "default"
-2024-11-06T19:12:30.667Z  INFO 49873 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data R2DBC repositories in DEFAULT mode.
-2024-11-06T19:12:31.345Z  INFO 49873 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 663 ms. Found 3 R2DBC repository interfaces.
-2024-11-06T19:12:36.798Z  INFO 49873 --- [main] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 8080 (http)
-2024-11-06T19:12:36.816Z  INFO 49873 --- [main] com.server.ServerApplication             : Started ServerApplication in 9.419 seconds (process running for 10.327)
+2024-11-07T11:00:48.771Z  INFO 2400 --- [main] com.server.ServerApplication             : Starting ServerApplication using Java 21.0.4 with PID 2400 (/workspace/target/classes started by dev in /workspace)
+2024-11-07T11:00:48.805Z  INFO 2400 --- [main] com.server.ServerApplication             : No active profile set, falling back to 1 default profile: "default"
+2024-11-07T11:00:50.449Z  INFO 2400 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data R2DBC repositories in DEFAULT mode.
+2024-11-07T11:00:51.084Z  INFO 2400 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 621 ms. Found 3 R2DBC repository interfaces.
+2024-11-07T11:00:55.797Z  INFO 2400 --- [main] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 8080 (http)
+2024-11-07T11:00:55.818Z  INFO 2400 --- [main] com.server.ServerApplication             : Started ServerApplication in 8.396 seconds (process running for 9.243)
+2024-11-07T11:01:12.695Z  INFO 2400 --- [reactor-http-epoll-2] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:01:13.187Z  INFO 2400 --- [reactor-http-epoll-2] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:01:13.991Z  INFO 2400 --- [reactor-http-epoll-3] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:01:14.027Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:01:14.048Z  INFO 2400 --- [reactor-http-epoll-2] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:01:14.073Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:01:14.098Z  INFO 2400 --- [reactor-http-epoll-3] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:01:14.120Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:01:14.158Z  INFO 2400 --- [reactor-http-epoll-2] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 1
+2024-11-07T11:01:14.269Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 1
+2024-11-07T11:07:46.315Z  INFO 2400 --- [reactor-http-epoll-4] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:07:46.331Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:07:47.024Z  INFO 2400 --- [reactor-http-epoll-5] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:07:47.047Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:07:47.069Z  INFO 2400 --- [reactor-http-epoll-4] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:07:47.097Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:07:47.116Z  INFO 2400 --- [reactor-http-epoll-5] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:07:47.131Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:07:47.140Z  INFO 2400 --- [reactor-http-epoll-4] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 1
+2024-11-07T11:07:47.147Z  INFO 2400 --- [reactor-http-epoll-4] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 1
+2024-11-07T11:07:47.687Z  INFO 2400 --- [reactor-http-epoll-6] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 2
+2024-11-07T11:07:47.697Z  INFO 2400 --- [reactor-http-epoll-6] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 2
+2024-11-07T11:07:47.758Z  INFO 2400 --- [reactor-http-epoll-7] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 4
+2024-11-07T11:07:47.771Z  INFO 2400 --- [reactor-http-epoll-7] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 4
+2024-11-07T11:07:47.799Z  INFO 2400 --- [reactor-http-epoll-8] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 7
+2024-11-07T11:07:47.810Z  INFO 2400 --- [reactor-http-epoll-8] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 7
+2024-11-07T11:07:47.839Z  INFO 2400 --- [reactor-http-epoll-9] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 3
+2024-11-07T11:07:47.846Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 3
+2024-11-07T11:07:47.870Z  INFO 2400 --- [reactor-http-epoll-10] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 5
+2024-11-07T11:07:47.877Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 5
+2024-11-07T11:07:47.905Z  INFO 2400 --- [reactor-http-epoll-11] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 8
+2024-11-07T11:07:47.911Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 8
+2024-11-07T11:07:47.946Z  INFO 2400 --- [reactor-http-epoll-12] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 11
+2024-11-07T11:07:47.952Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 11
+2024-11-07T11:07:47.967Z  INFO 2400 --- [reactor-http-epoll-13] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 10
+2024-11-07T11:07:47.973Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 10
+2024-11-07T11:07:47.996Z  INFO 2400 --- [reactor-http-epoll-14] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 9
+2024-11-07T11:07:48.002Z  INFO 2400 --- [reactor-http-epoll-14] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 9
+2024-11-07T11:07:48.037Z  INFO 2400 --- [reactor-http-epoll-15] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 6
+2024-11-07T11:07:48.044Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 6
+2024-11-07T11:07:48.059Z  INFO 2400 --- [reactor-http-epoll-16] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 12
+2024-11-07T11:07:48.069Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 12
+2024-11-07T11:07:48.083Z  INFO 2400 --- [reactor-http-epoll-1] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 16
+2024-11-07T11:07:48.094Z  INFO 2400 --- [reactor-http-epoll-1] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 16
+2024-11-07T11:07:48.126Z  INFO 2400 --- [reactor-http-epoll-2] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 19
+2024-11-07T11:07:48.131Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 19
+2024-11-07T11:07:48.158Z  INFO 2400 --- [reactor-http-epoll-3] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 15
+2024-11-07T11:07:48.162Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 15
+2024-11-07T11:07:48.173Z  INFO 2400 --- [reactor-http-epoll-4] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 13
+2024-11-07T11:07:48.179Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 13
+2024-11-07T11:07:48.208Z  INFO 2400 --- [reactor-http-epoll-5] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 20
+2024-11-07T11:07:48.213Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 20
+2024-11-07T11:07:48.281Z  INFO 2400 --- [reactor-http-epoll-8] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 18
+2024-11-07T11:07:48.286Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 18
+2024-11-07T11:07:48.287Z  INFO 2400 --- [reactor-http-epoll-6] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 14
+2024-11-07T11:07:48.293Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 14
+2024-11-07T11:07:48.317Z  INFO 2400 --- [reactor-http-epoll-7] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 17
+2024-11-07T11:07:48.322Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 17
+2024-11-07T11:07:48.350Z  INFO 2400 --- [reactor-http-epoll-5] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:07:48.368Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:07:48.440Z  INFO 2400 --- [reactor-http-epoll-2] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:07:48.454Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:10:33.097Z  INFO 2400 --- [reactor-http-epoll-9] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:10:33.109Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:10:33.914Z  INFO 2400 --- [reactor-http-epoll-10] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:10:33.932Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:10:33.947Z  INFO 2400 --- [reactor-http-epoll-9] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:10:33.959Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:10:33.983Z  INFO 2400 --- [reactor-http-epoll-10] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:10:33.996Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:10:34.005Z  INFO 2400 --- [reactor-http-epoll-9] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 1
+2024-11-07T11:10:34.009Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 1
+2024-11-07T11:10:34.577Z  INFO 2400 --- [reactor-http-epoll-11] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 7
+2024-11-07T11:10:34.583Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 7
+2024-11-07T11:10:34.622Z  INFO 2400 --- [reactor-http-epoll-12] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 2
+2024-11-07T11:10:34.629Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 2
+2024-11-07T11:10:34.684Z  INFO 2400 --- [reactor-http-epoll-13] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 4
+2024-11-07T11:10:34.691Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 4
+2024-11-07T11:10:34.744Z  INFO 2400 --- [reactor-http-epoll-15] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 8
+2024-11-07T11:10:34.747Z  INFO 2400 --- [reactor-http-epoll-14] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 10
+2024-11-07T11:10:34.748Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 8
+2024-11-07T11:10:34.754Z  INFO 2400 --- [reactor-http-epoll-14] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 10
+2024-11-07T11:10:34.797Z  INFO 2400 --- [reactor-http-epoll-1] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 12
+2024-11-07T11:10:34.802Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 12
+2024-11-07T11:10:34.808Z  INFO 2400 --- [reactor-http-epoll-16] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 6
+2024-11-07T11:10:34.814Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 6
+2024-11-07T11:10:34.820Z  INFO 2400 --- [reactor-http-epoll-2] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 15
+2024-11-07T11:10:34.829Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 15
+2024-11-07T11:10:34.864Z  INFO 2400 --- [reactor-http-epoll-3] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 11
+2024-11-07T11:10:34.868Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 11
+2024-11-07T11:10:34.879Z  INFO 2400 --- [reactor-http-epoll-4] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 13
+2024-11-07T11:10:34.885Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 13
+2024-11-07T11:10:34.930Z  INFO 2400 --- [reactor-http-epoll-5] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 16
+2024-11-07T11:10:34.936Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 16
+2024-11-07T11:10:34.945Z  INFO 2400 --- [reactor-http-epoll-6] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 5
+2024-11-07T11:10:34.950Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 5
+2024-11-07T11:10:34.985Z  INFO 2400 --- [reactor-http-epoll-7] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 19
+2024-11-07T11:10:34.988Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 19
+2024-11-07T11:10:35.015Z  INFO 2400 --- [reactor-http-epoll-8] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 17
+2024-11-07T11:10:35.020Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 17
+2024-11-07T11:10:35.036Z  INFO 2400 --- [reactor-http-epoll-9] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 18
+2024-11-07T11:10:35.041Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 18
+2024-11-07T11:10:35.082Z  INFO 2400 --- [reactor-http-epoll-10] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 20
+2024-11-07T11:10:35.086Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 20
+2024-11-07T11:10:35.097Z  INFO 2400 --- [reactor-http-epoll-11] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 3
+2024-11-07T11:10:35.102Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 3
+2024-11-07T11:10:35.125Z  INFO 2400 --- [reactor-http-epoll-12] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 9
+2024-11-07T11:10:35.130Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 9
+2024-11-07T11:10:35.153Z  INFO 2400 --- [reactor-http-epoll-13] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 14
+2024-11-07T11:10:35.157Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 14
+2024-11-07T11:10:35.177Z  INFO 2400 --- [reactor-http-epoll-10] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:10:35.197Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:10:35.224Z  INFO 2400 --- [reactor-http-epoll-7] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:10:35.233Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:11:37.754Z  INFO 2400 --- [reactor-http-epoll-14] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:11:37.765Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:11:38.449Z  INFO 2400 --- [reactor-http-epoll-15] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:11:38.459Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:11:38.481Z  INFO 2400 --- [reactor-http-epoll-14] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:11:38.490Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:11:38.518Z  INFO 2400 --- [reactor-http-epoll-15] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:11:38.531Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:11:38.539Z  INFO 2400 --- [reactor-http-epoll-14] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 1
+2024-11-07T11:11:38.544Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 1
+2024-11-07T11:11:38.870Z  INFO 2400 --- [reactor-http-epoll-16] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 2
+2024-11-07T11:11:38.877Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 2
+2024-11-07T11:11:38.878Z  INFO 2400 --- [reactor-http-epoll-1] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 4
+2024-11-07T11:11:38.890Z  INFO 2400 --- [reactor-http-epoll-1] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 4
+2024-11-07T11:11:38.941Z  INFO 2400 --- [reactor-http-epoll-2] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 3
+2024-11-07T11:11:38.948Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 3
+2024-11-07T11:11:39.229Z  INFO 2400 --- [reactor-http-epoll-3] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 7
+2024-11-07T11:11:39.237Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 7
+2024-11-07T11:11:39.275Z  INFO 2400 --- [reactor-http-epoll-4] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 6
+2024-11-07T11:11:39.281Z  INFO 2400 --- [reactor-http-epoll-4] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 6
+2024-11-07T11:11:39.301Z  INFO 2400 --- [reactor-http-epoll-5] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 10
+2024-11-07T11:11:39.306Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 10
+2024-11-07T11:11:39.343Z  INFO 2400 --- [reactor-http-epoll-6] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 11
+2024-11-07T11:11:39.348Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 11
+2024-11-07T11:11:39.398Z  INFO 2400 --- [reactor-http-epoll-8] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 15
+2024-11-07T11:11:39.402Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 15
+2024-11-07T11:11:39.429Z  INFO 2400 --- [reactor-http-epoll-9] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 14
+2024-11-07T11:11:39.434Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 14
+2024-11-07T11:11:39.447Z  INFO 2400 --- [reactor-http-epoll-7] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 17
+2024-11-07T11:11:39.453Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 17
+2024-11-07T11:11:39.467Z  INFO 2400 --- [reactor-http-epoll-10] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 8
+2024-11-07T11:11:39.473Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 8
+2024-11-07T11:11:39.491Z  INFO 2400 --- [reactor-http-epoll-11] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 5
+2024-11-07T11:11:39.497Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 5
+2024-11-07T11:11:39.525Z  INFO 2400 --- [reactor-http-epoll-12] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 18
+2024-11-07T11:11:39.529Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 18
+2024-11-07T11:11:39.564Z  INFO 2400 --- [reactor-http-epoll-13] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 13
+2024-11-07T11:11:39.568Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 13
+2024-11-07T11:11:39.581Z  INFO 2400 --- [reactor-http-epoll-14] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 16
+2024-11-07T11:11:39.586Z  INFO 2400 --- [reactor-http-epoll-14] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 16
+2024-11-07T11:11:39.623Z  INFO 2400 --- [reactor-http-epoll-15] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 19
+2024-11-07T11:11:39.627Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 19
+2024-11-07T11:11:39.660Z  INFO 2400 --- [reactor-http-epoll-1] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 12
+2024-11-07T11:11:39.664Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 12
+2024-11-07T11:11:39.677Z  INFO 2400 --- [reactor-http-epoll-16] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 20
+2024-11-07T11:11:39.681Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 20
+2024-11-07T11:11:39.693Z  INFO 2400 --- [reactor-http-epoll-2] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 9
+2024-11-07T11:11:39.698Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 9
+2024-11-07T11:11:39.719Z  INFO 2400 --- [reactor-http-epoll-15] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:11:39.734Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:11:39.766Z  INFO 2400 --- [reactor-http-epoll-15] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:11:39.783Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:13:48.051Z  INFO 2400 --- [reactor-http-epoll-3] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:13:48.060Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:13:48.747Z  INFO 2400 --- [reactor-http-epoll-4] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:13:48.754Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:13:48.778Z  INFO 2400 --- [reactor-http-epoll-3] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:13:48.785Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:13:48.814Z  INFO 2400 --- [reactor-http-epoll-4] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:13:48.825Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:13:48.835Z  INFO 2400 --- [reactor-http-epoll-3] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 1
+2024-11-07T11:13:48.839Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 1
+2024-11-07T11:13:49.276Z  INFO 2400 --- [reactor-http-epoll-5] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 2
+2024-11-07T11:13:49.282Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 2
+2024-11-07T11:13:49.290Z  INFO 2400 --- [reactor-http-epoll-6] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 7
+2024-11-07T11:13:49.300Z  INFO 2400 --- [reactor-http-epoll-6] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 7
+2024-11-07T11:13:49.386Z  INFO 2400 --- [reactor-http-epoll-7] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 4
+2024-11-07T11:13:49.396Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 4
+2024-11-07T11:13:49.427Z  INFO 2400 --- [reactor-http-epoll-8] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 5
+2024-11-07T11:13:49.433Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 5
+2024-11-07T11:13:49.487Z  INFO 2400 --- [reactor-http-epoll-9] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 6
+2024-11-07T11:13:49.491Z  INFO 2400 --- [reactor-http-epoll-9] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 6
+2024-11-07T11:13:49.503Z  INFO 2400 --- [reactor-http-epoll-10] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 8
+2024-11-07T11:13:49.509Z  INFO 2400 --- [reactor-http-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 8
+2024-11-07T11:13:49.549Z  INFO 2400 --- [reactor-http-epoll-11] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 3
+2024-11-07T11:13:49.553Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 3
+2024-11-07T11:13:49.578Z  INFO 2400 --- [reactor-http-epoll-12] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 12
+2024-11-07T11:13:49.582Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 12
+2024-11-07T11:13:49.608Z  INFO 2400 --- [reactor-http-epoll-13] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 9
+2024-11-07T11:13:49.613Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 9
+2024-11-07T11:13:49.631Z  INFO 2400 --- [reactor-http-epoll-14] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 11
+2024-11-07T11:13:49.635Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 11
+2024-11-07T11:13:49.669Z  INFO 2400 --- [reactor-http-epoll-15] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 19
+2024-11-07T11:13:49.672Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 19
+2024-11-07T11:13:49.685Z  INFO 2400 --- [reactor-http-epoll-16] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 20
+2024-11-07T11:13:49.689Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 20
+2024-11-07T11:13:49.717Z  INFO 2400 --- [reactor-http-epoll-1] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 10
+2024-11-07T11:13:49.722Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 10
+2024-11-07T11:13:49.746Z  INFO 2400 --- [reactor-http-epoll-2] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 15
+2024-11-07T11:13:49.750Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 15
+2024-11-07T11:13:49.779Z  INFO 2400 --- [reactor-http-epoll-3] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 14
+2024-11-07T11:13:49.791Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 14
+2024-11-07T11:13:49.810Z  INFO 2400 --- [reactor-http-epoll-4] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 18
+2024-11-07T11:13:49.815Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 18
+2024-11-07T11:13:49.881Z  INFO 2400 --- [reactor-http-epoll-5] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 13
+2024-11-07T11:13:49.883Z  INFO 2400 --- [reactor-http-epoll-6] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 17
+2024-11-07T11:13:49.884Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 13
+2024-11-07T11:13:49.887Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 17
+2024-11-07T11:13:49.944Z  INFO 2400 --- [reactor-http-epoll-7] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 16
+2024-11-07T11:13:49.947Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 16
+2024-11-07T11:13:49.966Z  INFO 2400 --- [reactor-http-epoll-4] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:13:49.976Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:13:50.016Z  INFO 2400 --- [reactor-http-epoll-15] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:13:50.025Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:15:48.355Z  INFO 2400 --- [reactor-http-epoll-8] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:15:48.363Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:15:49.132Z  INFO 2400 --- [reactor-http-epoll-9] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:15:49.139Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:15:49.165Z  INFO 2400 --- [reactor-http-epoll-8] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:15:49.173Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:15:49.200Z  INFO 2400 --- [reactor-http-epoll-9] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:15:49.209Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:15:49.223Z  INFO 2400 --- [reactor-http-epoll-8] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 1
+2024-11-07T11:15:49.228Z  INFO 2400 --- [reactor-http-epoll-8] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 1
+2024-11-07T11:15:49.590Z  INFO 2400 --- [reactor-http-epoll-10] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 2
+2024-11-07T11:15:49.602Z  INFO 2400 --- [reactor-http-epoll-11] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 3
+2024-11-07T11:15:49.604Z  INFO 2400 --- [reactor-http-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 2
+2024-11-07T11:15:49.610Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 3
+2024-11-07T11:15:49.684Z  INFO 2400 --- [reactor-http-epoll-12] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 4
+2024-11-07T11:15:49.691Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 4
+2024-11-07T11:15:49.892Z  INFO 2400 --- [reactor-http-epoll-13] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 6
+2024-11-07T11:15:49.899Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 6
+2024-11-07T11:15:49.927Z  INFO 2400 --- [reactor-http-epoll-14] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 8
+2024-11-07T11:15:49.932Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 8
+2024-11-07T11:15:49.964Z  INFO 2400 --- [reactor-http-epoll-15] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 10
+2024-11-07T11:15:49.970Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 10
+2024-11-07T11:15:49.995Z  INFO 2400 --- [reactor-http-epoll-16] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 15
+2024-11-07T11:15:49.999Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 15
+2024-11-07T11:15:50.062Z  INFO 2400 --- [reactor-http-epoll-2] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 5
+2024-11-07T11:15:50.066Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 5
+2024-11-07T11:15:50.071Z  INFO 2400 --- [reactor-http-epoll-1] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 9
+2024-11-07T11:15:50.080Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 9
+2024-11-07T11:15:50.097Z  INFO 2400 --- [reactor-http-epoll-3] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 17
+2024-11-07T11:15:50.105Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 17
+2024-11-07T11:15:50.152Z  INFO 2400 --- [reactor-http-epoll-4] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 12
+2024-11-07T11:15:50.159Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 12
+2024-11-07T11:15:50.182Z  INFO 2400 --- [reactor-http-epoll-5] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 7
+2024-11-07T11:15:50.192Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 7
+2024-11-07T11:15:50.237Z  INFO 2400 --- [reactor-http-epoll-6] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 13
+2024-11-07T11:15:50.245Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 13
+2024-11-07T11:15:50.268Z  INFO 2400 --- [reactor-http-epoll-7] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 18
+2024-11-07T11:15:50.284Z  INFO 2400 --- [reactor-http-epoll-7] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 18
+2024-11-07T11:15:50.298Z  INFO 2400 --- [reactor-http-epoll-8] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 11
+2024-11-07T11:15:50.308Z  INFO 2400 --- [reactor-http-epoll-8] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 11
+2024-11-07T11:15:50.324Z  INFO 2400 --- [reactor-http-epoll-9] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 19
+2024-11-07T11:15:50.331Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 19
+2024-11-07T11:15:50.375Z  INFO 2400 --- [reactor-http-epoll-10] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 20
+2024-11-07T11:15:50.378Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 20
+2024-11-07T11:15:50.387Z  INFO 2400 --- [reactor-http-epoll-11] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 14
+2024-11-07T11:15:50.391Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 14
+2024-11-07T11:15:50.419Z  INFO 2400 --- [reactor-http-epoll-12] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 16
+2024-11-07T11:15:50.423Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 16
+2024-11-07T11:15:50.442Z  INFO 2400 --- [reactor-http-epoll-9] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:15:50.455Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:15:50.489Z  INFO 2400 --- [reactor-http-epoll-9] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:15:50.496Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:19:11.585Z  INFO 2400 --- [reactor-http-epoll-13] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:19:11.592Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:19:12.282Z  INFO 2400 --- [reactor-http-epoll-14] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:19:12.288Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:19:12.309Z  INFO 2400 --- [reactor-http-epoll-13] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:19:12.317Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:19:12.342Z  INFO 2400 --- [reactor-http-epoll-14] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:19:12.348Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:19:12.362Z  INFO 2400 --- [reactor-http-epoll-13] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 1
+2024-11-07T11:19:12.366Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 1
+2024-11-07T11:19:12.798Z  INFO 2400 --- [reactor-http-epoll-15] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 7
+2024-11-07T11:19:12.802Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 7
+2024-11-07T11:19:12.902Z  INFO 2400 --- [reactor-http-epoll-1] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 3
+2024-11-07T11:19:12.906Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 3
+2024-11-07T11:19:12.932Z  INFO 2400 --- [reactor-http-epoll-16] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 5
+2024-11-07T11:19:12.935Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 5
+2024-11-07T11:19:12.938Z  INFO 2400 --- [reactor-http-epoll-2] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 2
+2024-11-07T11:19:12.944Z  INFO 2400 --- [reactor-http-epoll-2] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 2
+2024-11-07T11:19:12.973Z  INFO 2400 --- [reactor-http-epoll-3] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 6
+2024-11-07T11:19:12.977Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 6
+2024-11-07T11:19:13.012Z  INFO 2400 --- [reactor-http-epoll-4] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 8
+2024-11-07T11:19:13.016Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 8
+2024-11-07T11:19:13.030Z  INFO 2400 --- [reactor-http-epoll-5] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 4
+2024-11-07T11:19:13.036Z  INFO 2400 --- [reactor-http-epoll-5] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 4
+2024-11-07T11:19:13.070Z  INFO 2400 --- [reactor-http-epoll-6] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 12
+2024-11-07T11:19:13.074Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 12
+2024-11-07T11:19:13.100Z  INFO 2400 --- [reactor-http-epoll-7] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 18
+2024-11-07T11:19:13.104Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 18
+2024-11-07T11:19:13.123Z  INFO 2400 --- [reactor-http-epoll-8] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 15
+2024-11-07T11:19:13.127Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 15
+2024-11-07T11:19:13.156Z  INFO 2400 --- [reactor-http-epoll-9] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 10
+2024-11-07T11:19:13.159Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 10
+2024-11-07T11:19:13.186Z  INFO 2400 --- [reactor-http-epoll-10] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 9
+2024-11-07T11:19:13.191Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 9
+2024-11-07T11:19:13.210Z  INFO 2400 --- [reactor-http-epoll-11] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 11
+2024-11-07T11:19:13.214Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 11
+2024-11-07T11:19:13.247Z  INFO 2400 --- [reactor-http-epoll-12] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 14
+2024-11-07T11:19:13.251Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 14
+2024-11-07T11:19:13.263Z  INFO 2400 --- [reactor-http-epoll-13] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 13
+2024-11-07T11:19:13.267Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 13
+2024-11-07T11:19:13.293Z  INFO 2400 --- [reactor-http-epoll-14] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 17
+2024-11-07T11:19:13.296Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 17
+2024-11-07T11:19:13.332Z  INFO 2400 --- [reactor-http-epoll-15] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 19
+2024-11-07T11:19:13.335Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 19
+2024-11-07T11:19:13.346Z  INFO 2400 --- [reactor-http-epoll-16] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 16
+2024-11-07T11:19:13.350Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 16
+2024-11-07T11:19:13.382Z  INFO 2400 --- [reactor-http-epoll-1] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 20
+2024-11-07T11:19:13.385Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 20
+2024-11-07T11:19:13.403Z  INFO 2400 --- [reactor-http-epoll-14] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:19:13.415Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:19:13.441Z  INFO 2400 --- [reactor-http-epoll-15] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:19:13.449Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:20:30.732Z  INFO 2400 --- [reactor-http-epoll-2] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:20:30.737Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:20:31.414Z  INFO 2400 --- [reactor-http-epoll-3] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:20:31.418Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:20:31.444Z  INFO 2400 --- [reactor-http-epoll-2] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:20:31.450Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:20:31.473Z  INFO 2400 --- [reactor-http-epoll-3] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:20:31.479Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:20:31.494Z  INFO 2400 --- [reactor-http-epoll-2] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 1
+2024-11-07T11:20:31.498Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 1
+2024-11-07T11:20:32.145Z  INFO 2400 --- [reactor-http-epoll-4] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 8
+2024-11-07T11:20:32.151Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 8
+2024-11-07T11:20:32.211Z  INFO 2400 --- [reactor-http-epoll-5] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 4
+2024-11-07T11:20:32.217Z  INFO 2400 --- [reactor-http-epoll-5] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 4
+2024-11-07T11:20:32.231Z  INFO 2400 --- [reactor-http-epoll-6] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 6
+2024-11-07T11:20:32.238Z  INFO 2400 --- [reactor-http-epoll-6] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 6
+2024-11-07T11:20:32.288Z  INFO 2400 --- [reactor-http-epoll-7] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 2
+2024-11-07T11:20:32.293Z  INFO 2400 --- [reactor-http-epoll-7] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 2
+2024-11-07T11:20:32.347Z  INFO 2400 --- [reactor-http-epoll-8] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 9
+2024-11-07T11:20:32.351Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 9
+2024-11-07T11:20:32.381Z  INFO 2400 --- [reactor-http-epoll-9] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 7
+2024-11-07T11:20:32.387Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 7
+2024-11-07T11:20:32.421Z  INFO 2400 --- [reactor-http-epoll-10] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 10
+2024-11-07T11:20:32.426Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 10
+2024-11-07T11:20:32.444Z  INFO 2400 --- [reactor-http-epoll-11] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 5
+2024-11-07T11:20:32.449Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 5
+2024-11-07T11:20:32.486Z  INFO 2400 --- [reactor-http-epoll-12] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 15
+2024-11-07T11:20:32.491Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 15
+2024-11-07T11:20:32.510Z  INFO 2400 --- [reactor-http-epoll-13] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 3
+2024-11-07T11:20:32.514Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 3
+2024-11-07T11:20:32.543Z  INFO 2400 --- [reactor-http-epoll-14] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 17
+2024-11-07T11:20:32.546Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 17
+2024-11-07T11:20:32.576Z  INFO 2400 --- [reactor-http-epoll-15] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 16
+2024-11-07T11:20:32.581Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 16
+2024-11-07T11:20:32.616Z  INFO 2400 --- [reactor-http-epoll-16] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 11
+2024-11-07T11:20:32.620Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 11
+2024-11-07T11:20:32.638Z  INFO 2400 --- [reactor-http-epoll-1] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 18
+2024-11-07T11:20:32.643Z  INFO 2400 --- [reactor-http-epoll-1] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 18
+2024-11-07T11:20:32.672Z  INFO 2400 --- [reactor-http-epoll-2] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 14
+2024-11-07T11:20:32.675Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 14
+2024-11-07T11:20:32.713Z  INFO 2400 --- [reactor-http-epoll-3] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 13
+2024-11-07T11:20:32.717Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 13
+2024-11-07T11:20:32.737Z  INFO 2400 --- [reactor-http-epoll-4] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 20
+2024-11-07T11:20:32.742Z  INFO 2400 --- [reactor-http-epoll-4] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 20
+2024-11-07T11:20:32.774Z  INFO 2400 --- [reactor-http-epoll-5] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 19
+2024-11-07T11:20:32.777Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 19
+2024-11-07T11:20:32.786Z  INFO 2400 --- [reactor-http-epoll-6] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 12
+2024-11-07T11:20:32.790Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 12
+2024-11-07T11:20:32.809Z  INFO 2400 --- [reactor-http-epoll-3] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:20:32.817Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:20:32.852Z  INFO 2400 --- [reactor-http-epoll-4] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:20:32.859Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:21:33.423Z  INFO 2400 --- [reactor-http-epoll-7] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:21:33.429Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:21:34.134Z  INFO 2400 --- [reactor-http-epoll-8] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:21:34.139Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:21:34.158Z  INFO 2400 --- [reactor-http-epoll-7] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:21:34.164Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:21:34.193Z  INFO 2400 --- [reactor-http-epoll-8] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:21:34.200Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:21:34.214Z  INFO 2400 --- [reactor-http-epoll-7] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 1
+2024-11-07T11:21:34.219Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 1
+2024-11-07T11:21:34.593Z  INFO 2400 --- [reactor-http-epoll-9] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 2
+2024-11-07T11:21:34.601Z  INFO 2400 --- [reactor-http-epoll-9] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 2
+2024-11-07T11:21:34.662Z  INFO 2400 --- [reactor-http-epoll-10] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 3
+2024-11-07T11:21:34.670Z  INFO 2400 --- [reactor-http-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 3
+2024-11-07T11:21:34.701Z  INFO 2400 --- [reactor-http-epoll-11] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 5
+2024-11-07T11:21:34.705Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 5
+2024-11-07T11:21:34.778Z  INFO 2400 --- [reactor-http-epoll-13] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 7
+2024-11-07T11:21:34.783Z  INFO 2400 --- [reactor-http-epoll-13] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 7
+2024-11-07T11:21:34.816Z  INFO 2400 --- [reactor-http-epoll-14] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 9
+2024-11-07T11:21:34.820Z  INFO 2400 --- [reactor-http-epoll-14] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 9
+2024-11-07T11:21:34.821Z  INFO 2400 --- [reactor-http-epoll-12] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 6
+2024-11-07T11:21:34.827Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 6
+2024-11-07T11:21:34.866Z  INFO 2400 --- [reactor-http-epoll-15] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 4
+2024-11-07T11:21:34.871Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 4
+2024-11-07T11:21:34.911Z  INFO 2400 --- [reactor-http-epoll-16] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 8
+2024-11-07T11:21:34.914Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 8
+2024-11-07T11:21:34.926Z  INFO 2400 --- [reactor-http-epoll-1] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 11
+2024-11-07T11:21:34.930Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 11
+2024-11-07T11:21:34.961Z  INFO 2400 --- [reactor-http-epoll-2] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 18
+2024-11-07T11:21:34.964Z  INFO 2400 --- [reactor-http-epoll-2] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 18
+2024-11-07T11:21:34.989Z  INFO 2400 --- [reactor-http-epoll-3] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 14
+2024-11-07T11:21:34.993Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 14
+2024-11-07T11:21:35.017Z  INFO 2400 --- [reactor-http-epoll-4] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 10
+2024-11-07T11:21:35.021Z  INFO 2400 --- [reactor-http-epoll-4] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 10
+2024-11-07T11:21:35.056Z  INFO 2400 --- [reactor-http-epoll-5] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 12
+2024-11-07T11:21:35.060Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 12
+2024-11-07T11:21:35.079Z  INFO 2400 --- [reactor-http-epoll-6] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 20
+2024-11-07T11:21:35.088Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 20
+2024-11-07T11:21:35.119Z  INFO 2400 --- [reactor-http-epoll-7] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 15
+2024-11-07T11:21:35.123Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 15
+2024-11-07T11:21:35.137Z  INFO 2400 --- [reactor-http-epoll-8] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 16
+2024-11-07T11:21:35.141Z  INFO 2400 --- [reactor-http-epoll-8] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 16
+2024-11-07T11:21:35.187Z  INFO 2400 --- [reactor-http-epoll-9] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 13
+2024-11-07T11:21:35.191Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 13
+2024-11-07T11:21:35.201Z  INFO 2400 --- [reactor-http-epoll-10] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 17
+2024-11-07T11:21:35.205Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 17
+2024-11-07T11:21:35.228Z  INFO 2400 --- [reactor-http-epoll-11] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 19
+2024-11-07T11:21:35.231Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 19
+2024-11-07T11:21:35.248Z  INFO 2400 --- [reactor-http-epoll-8] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:21:35.261Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:21:35.287Z  INFO 2400 --- [reactor-http-epoll-6] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:21:35.293Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:22:31.818Z  INFO 2400 --- [reactor-http-epoll-12] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:22:31.823Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:22:32.547Z  INFO 2400 --- [reactor-http-epoll-13] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:22:32.554Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:22:32.581Z  INFO 2400 --- [reactor-http-epoll-12] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:22:32.587Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:22:32.613Z  INFO 2400 --- [reactor-http-epoll-13] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:22:32.618Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:22:32.631Z  INFO 2400 --- [reactor-http-epoll-12] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 1
+2024-11-07T11:22:32.635Z  INFO 2400 --- [reactor-http-epoll-12] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 1
+2024-11-07T11:22:33.233Z  INFO 2400 --- [reactor-http-epoll-14] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 2
+2024-11-07T11:22:33.240Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 2
+2024-11-07T11:22:33.301Z  INFO 2400 --- [reactor-http-epoll-15] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 3
+2024-11-07T11:22:33.302Z  INFO 2400 --- [reactor-http-epoll-16] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 6
+2024-11-07T11:22:33.305Z  INFO 2400 --- [reactor-http-epoll-16] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 6
+2024-11-07T11:22:33.306Z  INFO 2400 --- [reactor-tcp-epoll-9] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 3
+2024-11-07T11:22:33.334Z  INFO 2400 --- [reactor-http-epoll-1] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 4
+2024-11-07T11:22:33.337Z  INFO 2400 --- [reactor-tcp-epoll-9] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 4
+2024-11-07T11:22:33.372Z  INFO 2400 --- [reactor-http-epoll-2] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 5
+2024-11-07T11:22:33.377Z  INFO 2400 --- [reactor-tcp-epoll-9] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 5
+2024-11-07T11:22:33.398Z  INFO 2400 --- [reactor-http-epoll-3] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 12
+2024-11-07T11:22:33.401Z  INFO 2400 --- [reactor-tcp-epoll-9] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 12
+2024-11-07T11:22:33.435Z  INFO 2400 --- [reactor-http-epoll-4] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 15
+2024-11-07T11:22:33.438Z  INFO 2400 --- [reactor-tcp-epoll-9] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 15
+2024-11-07T11:22:33.452Z  INFO 2400 --- [reactor-http-epoll-5] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 7
+2024-11-07T11:22:33.457Z  INFO 2400 --- [reactor-tcp-epoll-9] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 7
+2024-11-07T11:22:33.492Z  INFO 2400 --- [reactor-http-epoll-6] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 11
+2024-11-07T11:22:33.496Z  INFO 2400 --- [reactor-tcp-epoll-9] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 11
+2024-11-07T11:22:33.528Z  INFO 2400 --- [reactor-http-epoll-7] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 20
+2024-11-07T11:22:33.532Z  INFO 2400 --- [reactor-tcp-epoll-9] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 20
+2024-11-07T11:22:33.589Z  INFO 2400 --- [reactor-http-epoll-9] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 16
+2024-11-07T11:22:33.591Z  INFO 2400 --- [reactor-http-epoll-8] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 9
+2024-11-07T11:22:33.593Z  INFO 2400 --- [reactor-tcp-epoll-9] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 16
+2024-11-07T11:22:33.595Z  INFO 2400 --- [reactor-http-epoll-8] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 9
+2024-11-07T11:22:33.643Z  INFO 2400 --- [reactor-http-epoll-11] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 17
+2024-11-07T11:22:33.646Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 17
+2024-11-07T11:22:33.663Z  INFO 2400 --- [reactor-http-epoll-10] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 8
+2024-11-07T11:22:33.667Z  INFO 2400 --- [reactor-http-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 8
+2024-11-07T11:22:33.675Z  INFO 2400 --- [reactor-http-epoll-12] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 13
+2024-11-07T11:22:33.679Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 13
+2024-11-07T11:22:33.704Z  INFO 2400 --- [reactor-http-epoll-13] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 19
+2024-11-07T11:22:33.707Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 19
+2024-11-07T11:22:33.726Z  INFO 2400 --- [reactor-http-epoll-14] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 14
+2024-11-07T11:22:33.729Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 14
+2024-11-07T11:22:33.759Z  INFO 2400 --- [reactor-http-epoll-15] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 10
+2024-11-07T11:22:33.762Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 10
+2024-11-07T11:22:33.776Z  INFO 2400 --- [reactor-http-epoll-16] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 18
+2024-11-07T11:22:33.780Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 18
+2024-11-07T11:22:33.797Z  INFO 2400 --- [reactor-http-epoll-13] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:22:33.804Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:22:33.834Z  INFO 2400 --- [reactor-http-epoll-7] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:22:33.840Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:23:36.346Z  INFO 2400 --- [reactor-http-epoll-1] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:23:36.350Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:23:37.074Z  INFO 2400 --- [reactor-http-epoll-2] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:23:37.079Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:23:37.102Z  INFO 2400 --- [reactor-http-epoll-1] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:23:37.109Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:23:37.137Z  INFO 2400 --- [reactor-http-epoll-2] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:23:37.144Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:23:37.156Z  INFO 2400 --- [reactor-http-epoll-1] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 1
+2024-11-07T11:23:37.160Z  INFO 2400 --- [reactor-http-epoll-1] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 1
+2024-11-07T11:23:37.474Z  INFO 2400 --- [reactor-http-epoll-3] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 3
+2024-11-07T11:23:37.481Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 3
+2024-11-07T11:23:37.527Z  INFO 2400 --- [reactor-http-epoll-4] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 2
+2024-11-07T11:23:37.534Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 2
+2024-11-07T11:23:37.735Z  INFO 2400 --- [reactor-http-epoll-5] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 6
+2024-11-07T11:23:37.739Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 6
+2024-11-07T11:23:37.788Z  INFO 2400 --- [reactor-http-epoll-7] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 8
+2024-11-07T11:23:37.791Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 8
+2024-11-07T11:23:37.804Z  INFO 2400 --- [reactor-http-epoll-6] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 4
+2024-11-07T11:23:37.808Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 4
+2024-11-07T11:23:37.821Z  INFO 2400 --- [reactor-http-epoll-8] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 5
+2024-11-07T11:23:37.825Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 5
+2024-11-07T11:23:37.866Z  INFO 2400 --- [reactor-http-epoll-9] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 15
+2024-11-07T11:23:37.870Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 15
+2024-11-07T11:23:37.889Z  INFO 2400 --- [reactor-http-epoll-10] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 11
+2024-11-07T11:23:37.893Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 11
+2024-11-07T11:23:37.920Z  INFO 2400 --- [reactor-http-epoll-11] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 17
+2024-11-07T11:23:37.924Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 17
+2024-11-07T11:23:37.953Z  INFO 2400 --- [reactor-http-epoll-12] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 16
+2024-11-07T11:23:37.957Z  INFO 2400 --- [reactor-http-epoll-12] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 16
+2024-11-07T11:23:37.983Z  INFO 2400 --- [reactor-http-epoll-13] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 12
+2024-11-07T11:23:37.987Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 12
+2024-11-07T11:23:38.006Z  INFO 2400 --- [reactor-http-epoll-14] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 14
+2024-11-07T11:23:38.012Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 14
+2024-11-07T11:23:38.049Z  INFO 2400 --- [reactor-http-epoll-15] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 13
+2024-11-07T11:23:38.054Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 13
+2024-11-07T11:23:38.061Z  INFO 2400 --- [reactor-http-epoll-16] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 19
+2024-11-07T11:23:38.064Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 19
+2024-11-07T11:23:38.095Z  INFO 2400 --- [reactor-http-epoll-1] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 9
+2024-11-07T11:23:38.099Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 9
+2024-11-07T11:23:38.112Z  INFO 2400 --- [reactor-http-epoll-2] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 18
+2024-11-07T11:23:38.117Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 18
+2024-11-07T11:23:38.147Z  INFO 2400 --- [reactor-http-epoll-3] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 7
+2024-11-07T11:23:38.150Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 7
+2024-11-07T11:23:38.173Z  INFO 2400 --- [reactor-http-epoll-4] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 10
+2024-11-07T11:23:38.175Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 10
+2024-11-07T11:23:38.196Z  INFO 2400 --- [reactor-http-epoll-5] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 20
+2024-11-07T11:23:38.199Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 20
+2024-11-07T11:23:38.215Z  INFO 2400 --- [reactor-http-epoll-2] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:23:38.222Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:23:38.248Z  INFO 2400 --- [reactor-http-epoll-16] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:23:38.252Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:24:05.989Z  INFO 2400 --- [reactor-http-epoll-6] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:24:05.994Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:24:06.810Z  INFO 2400 --- [reactor-http-epoll-7] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:24:06.816Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:24:06.844Z  INFO 2400 --- [reactor-http-epoll-6] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:24:06.850Z  INFO 2400 --- [reactor-http-epoll-6] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:24:06.880Z  INFO 2400 --- [reactor-http-epoll-7] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:24:06.885Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:24:06.901Z  INFO 2400 --- [reactor-http-epoll-6] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 1
+2024-11-07T11:24:06.905Z  INFO 2400 --- [reactor-http-epoll-6] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 1
+2024-11-07T11:24:07.569Z  INFO 2400 --- [reactor-http-epoll-8] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 5
+2024-11-07T11:24:07.573Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 5
+2024-11-07T11:24:07.594Z  INFO 2400 --- [reactor-http-epoll-9] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 12
+2024-11-07T11:24:07.601Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 12
+2024-11-07T11:24:07.659Z  INFO 2400 --- [reactor-http-epoll-10] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 2
+2024-11-07T11:24:07.663Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 2
+2024-11-07T11:24:07.682Z  INFO 2400 --- [reactor-http-epoll-11] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 4
+2024-11-07T11:24:07.687Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 4
+2024-11-07T11:24:07.724Z  INFO 2400 --- [reactor-http-epoll-12] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 6
+2024-11-07T11:24:07.727Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 6
+2024-11-07T11:24:07.747Z  INFO 2400 --- [reactor-http-epoll-13] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 7
+2024-11-07T11:24:07.751Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 7
+2024-11-07T11:24:07.790Z  INFO 2400 --- [reactor-http-epoll-14] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 8
+2024-11-07T11:24:07.793Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 8
+2024-11-07T11:24:07.806Z  INFO 2400 --- [reactor-http-epoll-15] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 9
+2024-11-07T11:24:07.810Z  INFO 2400 --- [reactor-http-epoll-15] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 9
+2024-11-07T11:24:07.846Z  INFO 2400 --- [reactor-http-epoll-16] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 15
+2024-11-07T11:24:07.849Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 15
+2024-11-07T11:24:07.905Z  INFO 2400 --- [reactor-http-epoll-2] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 14
+2024-11-07T11:24:07.909Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 14
+2024-11-07T11:24:07.923Z  INFO 2400 --- [reactor-http-epoll-1] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 3
+2024-11-07T11:24:07.927Z  INFO 2400 --- [reactor-http-epoll-1] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 3
+2024-11-07T11:24:07.958Z  INFO 2400 --- [reactor-http-epoll-3] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 16
+2024-11-07T11:24:07.962Z  INFO 2400 --- [reactor-http-epoll-3] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 16
+2024-11-07T11:24:07.975Z  INFO 2400 --- [reactor-http-epoll-4] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 19
+2024-11-07T11:24:07.979Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 19
+2024-11-07T11:24:08.007Z  INFO 2400 --- [reactor-http-epoll-5] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 17
+2024-11-07T11:24:08.010Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 17
+2024-11-07T11:24:08.029Z  INFO 2400 --- [reactor-http-epoll-6] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 20
+2024-11-07T11:24:08.032Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 20
+2024-11-07T11:24:08.062Z  INFO 2400 --- [reactor-http-epoll-7] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 11
+2024-11-07T11:24:08.065Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 11
+2024-11-07T11:24:08.092Z  INFO 2400 --- [reactor-http-epoll-8] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 10
+2024-11-07T11:24:08.095Z  INFO 2400 --- [reactor-http-epoll-8] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 10
+2024-11-07T11:24:08.109Z  INFO 2400 --- [reactor-http-epoll-9] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 18
+2024-11-07T11:24:08.113Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 18
+2024-11-07T11:24:08.135Z  INFO 2400 --- [reactor-http-epoll-10] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 13
+2024-11-07T11:24:08.138Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 13
+2024-11-07T11:24:08.155Z  INFO 2400 --- [reactor-http-epoll-7] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:24:08.161Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:24:08.188Z  INFO 2400 --- [reactor-http-epoll-4] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:24:08.192Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:24:51.490Z  INFO 2400 --- [reactor-http-epoll-11] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:24:51.496Z  INFO 2400 --- [reactor-http-epoll-11] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:24:52.268Z  INFO 2400 --- [reactor-http-epoll-12] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:24:52.273Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:24:52.298Z  INFO 2400 --- [reactor-http-epoll-11] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:24:52.303Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:24:52.330Z  INFO 2400 --- [reactor-http-epoll-12] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:24:52.334Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:24:52.349Z  INFO 2400 --- [reactor-http-epoll-11] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 1
+2024-11-07T11:24:52.352Z  INFO 2400 --- [reactor-http-epoll-11] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 1
+2024-11-07T11:24:53.108Z  INFO 2400 --- [reactor-http-epoll-13] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 13
+2024-11-07T11:24:53.115Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 13
+2024-11-07T11:24:53.127Z  INFO 2400 --- [reactor-http-epoll-14] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 9
+2024-11-07T11:24:53.136Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 9
+2024-11-07T11:24:53.159Z  INFO 2400 --- [reactor-http-epoll-15] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 15
+2024-11-07T11:24:53.164Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 15
+2024-11-07T11:24:53.206Z  INFO 2400 --- [reactor-http-epoll-16] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 3
+2024-11-07T11:24:53.209Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 3
+2024-11-07T11:24:53.236Z  INFO 2400 --- [reactor-http-epoll-1] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 20
+2024-11-07T11:24:53.238Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 20
+2024-11-07T11:24:53.266Z  INFO 2400 --- [reactor-http-epoll-2] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 4
+2024-11-07T11:24:53.269Z  INFO 2400 --- [reactor-http-epoll-2] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 4
+2024-11-07T11:24:53.284Z  INFO 2400 --- [reactor-http-epoll-3] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 6
+2024-11-07T11:24:53.288Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 6
+2024-11-07T11:24:53.312Z  INFO 2400 --- [reactor-http-epoll-4] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 7
+2024-11-07T11:24:53.314Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 7
+2024-11-07T11:24:53.341Z  INFO 2400 --- [reactor-http-epoll-5] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 11
+2024-11-07T11:24:53.344Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 11
+2024-11-07T11:24:53.372Z  INFO 2400 --- [reactor-http-epoll-6] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 5
+2024-11-07T11:24:53.375Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 5
+2024-11-07T11:24:53.402Z  INFO 2400 --- [reactor-http-epoll-7] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 2
+2024-11-07T11:24:53.405Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 2
+2024-11-07T11:24:53.421Z  INFO 2400 --- [reactor-http-epoll-8] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 19
+2024-11-07T11:24:53.424Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 19
+2024-11-07T11:24:53.480Z  INFO 2400 --- [reactor-http-epoll-10] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 12
+2024-11-07T11:24:53.483Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 12
+2024-11-07T11:24:53.494Z  INFO 2400 --- [reactor-http-epoll-11] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 17
+2024-11-07T11:24:53.497Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 17
+2024-11-07T11:24:53.504Z  INFO 2400 --- [reactor-http-epoll-9] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 8
+2024-11-07T11:24:53.508Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 8
+2024-11-07T11:24:53.542Z  INFO 2400 --- [reactor-http-epoll-12] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 14
+2024-11-07T11:24:53.545Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 14
+2024-11-07T11:24:53.587Z  INFO 2400 --- [reactor-http-epoll-14] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 16
+2024-11-07T11:24:53.590Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 16
+2024-11-07T11:24:53.604Z  INFO 2400 --- [reactor-http-epoll-13] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 10
+2024-11-07T11:24:53.607Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 10
+2024-11-07T11:24:53.616Z  INFO 2400 --- [reactor-http-epoll-15] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 18
+2024-11-07T11:24:53.619Z  INFO 2400 --- [reactor-http-epoll-15] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 18
+2024-11-07T11:24:53.637Z  INFO 2400 --- [reactor-http-epoll-12] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:24:53.642Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:24:53.673Z  INFO 2400 --- [reactor-http-epoll-1] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:24:53.676Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:26:35.787Z  INFO 2400 --- [reactor-http-epoll-16] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:26:35.797Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:26:36.447Z  INFO 2400 --- [reactor-http-epoll-1] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:26:36.451Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:26:36.475Z  INFO 2400 --- [reactor-http-epoll-16] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:26:36.481Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:26:36.512Z  INFO 2400 --- [reactor-http-epoll-1] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:26:36.518Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:26:36.539Z  INFO 2400 --- [reactor-http-epoll-16] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 1
+2024-11-07T11:26:36.544Z  INFO 2400 --- [reactor-http-epoll-16] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 1
+2024-11-07T11:26:37.175Z  INFO 2400 --- [reactor-http-epoll-2] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 9
+2024-11-07T11:26:37.179Z  INFO 2400 --- [reactor-http-epoll-2] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 9
+2024-11-07T11:26:37.216Z  INFO 2400 --- [reactor-http-epoll-3] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 3
+2024-11-07T11:26:37.220Z  INFO 2400 --- [reactor-http-epoll-3] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 3
+2024-11-07T11:26:37.237Z  INFO 2400 --- [reactor-http-epoll-4] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 2
+2024-11-07T11:26:37.241Z  INFO 2400 --- [reactor-http-epoll-4] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 2
+2024-11-07T11:26:37.277Z  INFO 2400 --- [reactor-http-epoll-5] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 4
+2024-11-07T11:26:37.280Z  INFO 2400 --- [reactor-http-epoll-5] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 4
+2024-11-07T11:26:37.290Z  INFO 2400 --- [reactor-http-epoll-6] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 8
+2024-11-07T11:26:37.294Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 8
+2024-11-07T11:26:37.331Z  INFO 2400 --- [reactor-http-epoll-7] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 13
+2024-11-07T11:26:37.334Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 13
+2024-11-07T11:26:37.358Z  INFO 2400 --- [reactor-http-epoll-8] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 6
+2024-11-07T11:26:37.361Z  INFO 2400 --- [reactor-http-epoll-8] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 6
+2024-11-07T11:26:37.389Z  INFO 2400 --- [reactor-http-epoll-9] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 12
+2024-11-07T11:26:37.392Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 12
+2024-11-07T11:26:37.403Z  INFO 2400 --- [reactor-http-epoll-10] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 7
+2024-11-07T11:26:37.406Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 7
+2024-11-07T11:26:37.447Z  INFO 2400 --- [reactor-http-epoll-11] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 16
+2024-11-07T11:26:37.449Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 16
+2024-11-07T11:26:37.455Z  INFO 2400 --- [reactor-http-epoll-12] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 5
+2024-11-07T11:26:37.459Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 5
+2024-11-07T11:26:37.505Z  INFO 2400 --- [reactor-http-epoll-13] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 10
+2024-11-07T11:26:37.508Z  INFO 2400 --- [reactor-http-epoll-13] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 10
+2024-11-07T11:26:37.512Z  INFO 2400 --- [reactor-http-epoll-14] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 17
+2024-11-07T11:26:37.516Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 17
+2024-11-07T11:26:37.557Z  INFO 2400 --- [reactor-http-epoll-15] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 14
+2024-11-07T11:26:37.561Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 14
+2024-11-07T11:26:37.577Z  INFO 2400 --- [reactor-http-epoll-16] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 20
+2024-11-07T11:26:37.580Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 20
+2024-11-07T11:26:37.608Z  INFO 2400 --- [reactor-http-epoll-1] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 11
+2024-11-07T11:26:37.611Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 11
+2024-11-07T11:26:37.638Z  INFO 2400 --- [reactor-http-epoll-2] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 15
+2024-11-07T11:26:37.641Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 15
+2024-11-07T11:26:37.655Z  INFO 2400 --- [reactor-http-epoll-3] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 19
+2024-11-07T11:26:37.657Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 19
+2024-11-07T11:26:37.679Z  INFO 2400 --- [reactor-http-epoll-4] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 18
+2024-11-07T11:26:37.682Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 18
+2024-11-07T11:26:37.700Z  INFO 2400 --- [reactor-http-epoll-1] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:26:37.705Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:26:37.738Z  INFO 2400 --- [reactor-http-epoll-16] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:26:37.743Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:27:27.928Z  INFO 2400 --- [reactor-http-epoll-5] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:27:27.931Z  INFO 2400 --- [reactor-http-epoll-5] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:27:28.584Z  INFO 2400 --- [reactor-http-epoll-6] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:27:28.589Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:27:28.616Z  INFO 2400 --- [reactor-http-epoll-5] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:27:28.622Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:27:28.651Z  INFO 2400 --- [reactor-http-epoll-6] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:27:28.658Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:27:28.675Z  INFO 2400 --- [reactor-http-epoll-5] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 1
+2024-11-07T11:27:28.680Z  INFO 2400 --- [reactor-http-epoll-5] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 1
+2024-11-07T11:27:29.501Z  INFO 2400 --- [reactor-http-epoll-7] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 9
+2024-11-07T11:27:29.514Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 9
+2024-11-07T11:27:29.516Z  INFO 2400 --- [reactor-http-epoll-8] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 13
+2024-11-07T11:27:29.529Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 13
+2024-11-07T11:27:29.570Z  INFO 2400 --- [reactor-http-epoll-9] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 10
+2024-11-07T11:27:29.578Z  INFO 2400 --- [reactor-http-epoll-9] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 10
+2024-11-07T11:27:29.639Z  INFO 2400 --- [reactor-http-epoll-11] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 5
+2024-11-07T11:27:29.642Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 5
+2024-11-07T11:27:29.654Z  INFO 2400 --- [reactor-http-epoll-10] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 2
+2024-11-07T11:27:29.658Z  INFO 2400 --- [reactor-http-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 2
+2024-11-07T11:27:29.702Z  INFO 2400 --- [reactor-http-epoll-13] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 18
+2024-11-07T11:27:29.706Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 18
+2024-11-07T11:27:29.714Z  INFO 2400 --- [reactor-http-epoll-12] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 7
+2024-11-07T11:27:29.717Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 7
+2024-11-07T11:27:29.722Z  INFO 2400 --- [reactor-http-epoll-14] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 3
+2024-11-07T11:27:29.726Z  INFO 2400 --- [reactor-http-epoll-14] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 3
+2024-11-07T11:27:29.760Z  INFO 2400 --- [reactor-http-epoll-15] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 4
+2024-11-07T11:27:29.763Z  INFO 2400 --- [reactor-http-epoll-15] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 4
+2024-11-07T11:27:29.791Z  INFO 2400 --- [reactor-http-epoll-16] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 15
+2024-11-07T11:27:29.795Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 15
+2024-11-07T11:27:29.846Z  INFO 2400 --- [reactor-http-epoll-2] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 11
+2024-11-07T11:27:29.850Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 11
+2024-11-07T11:27:29.864Z  INFO 2400 --- [reactor-http-epoll-1] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 14
+2024-11-07T11:27:29.867Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 14
+2024-11-07T11:27:29.873Z  INFO 2400 --- [reactor-http-epoll-3] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 17
+2024-11-07T11:27:29.877Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 17
+2024-11-07T11:27:29.911Z  INFO 2400 --- [reactor-http-epoll-4] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 8
+2024-11-07T11:27:29.914Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 8
+2024-11-07T11:27:29.933Z  INFO 2400 --- [reactor-http-epoll-5] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 6
+2024-11-07T11:27:29.936Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 6
+2024-11-07T11:27:29.963Z  INFO 2400 --- [reactor-http-epoll-6] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 19
+2024-11-07T11:27:29.965Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 19
+2024-11-07T11:27:29.993Z  INFO 2400 --- [reactor-http-epoll-7] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 12
+2024-11-07T11:27:29.996Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 12
+2024-11-07T11:27:30.006Z  INFO 2400 --- [reactor-http-epoll-8] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 20
+2024-11-07T11:27:30.009Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 20
+2024-11-07T11:27:30.034Z  INFO 2400 --- [reactor-http-epoll-9] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 16
+2024-11-07T11:27:30.037Z  INFO 2400 --- [reactor-http-epoll-9] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 16
+2024-11-07T11:27:30.051Z  INFO 2400 --- [reactor-http-epoll-6] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:27:30.055Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:27:30.080Z  INFO 2400 --- [reactor-http-epoll-6] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:27:30.084Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:29:07.222Z  INFO 2400 --- [reactor-http-epoll-10] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:29:07.226Z  INFO 2400 --- [reactor-http-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:29:07.834Z  INFO 2400 --- [reactor-http-epoll-11] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:29:07.838Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:29:07.865Z  INFO 2400 --- [reactor-http-epoll-10] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:29:07.871Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:29:07.899Z  INFO 2400 --- [reactor-http-epoll-11] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:29:07.904Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:29:07.919Z  INFO 2400 --- [reactor-http-epoll-10] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 1
+2024-11-07T11:29:07.923Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 1
+2024-11-07T11:29:08.535Z  INFO 2400 --- [reactor-http-epoll-12] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 4
+2024-11-07T11:29:08.539Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 4
+2024-11-07T11:29:08.599Z  INFO 2400 --- [reactor-http-epoll-13] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 5
+2024-11-07T11:29:08.605Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 5
+2024-11-07T11:29:08.637Z  INFO 2400 --- [reactor-http-epoll-14] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 8
+2024-11-07T11:29:08.639Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 8
+2024-11-07T11:29:08.664Z  INFO 2400 --- [reactor-http-epoll-15] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 9
+2024-11-07T11:29:08.667Z  INFO 2400 --- [reactor-http-epoll-15] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 9
+2024-11-07T11:29:08.676Z  INFO 2400 --- [reactor-http-epoll-16] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 15
+2024-11-07T11:29:08.680Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 15
+2024-11-07T11:29:08.706Z  INFO 2400 --- [reactor-http-epoll-1] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 2
+2024-11-07T11:29:08.709Z  INFO 2400 --- [reactor-http-epoll-1] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 2
+2024-11-07T11:29:08.738Z  INFO 2400 --- [reactor-http-epoll-2] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 6
+2024-11-07T11:29:08.741Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 6
+2024-11-07T11:29:08.754Z  INFO 2400 --- [reactor-http-epoll-3] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 11
+2024-11-07T11:29:08.758Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 11
+2024-11-07T11:29:08.809Z  INFO 2400 --- [reactor-http-epoll-5] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 17
+2024-11-07T11:29:08.813Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 17
+2024-11-07T11:29:08.825Z  INFO 2400 --- [reactor-http-epoll-6] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 13
+2024-11-07T11:29:08.827Z  INFO 2400 --- [reactor-http-epoll-4] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 3
+2024-11-07T11:29:08.830Z  INFO 2400 --- [reactor-tcp-epoll-9] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 3
+2024-11-07T11:29:08.830Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 13
+2024-11-07T11:29:08.872Z  INFO 2400 --- [reactor-http-epoll-7] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 10
+2024-11-07T11:29:08.876Z  INFO 2400 --- [reactor-http-epoll-7] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 10
+2024-11-07T11:29:08.890Z  INFO 2400 --- [reactor-http-epoll-8] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 7
+2024-11-07T11:29:08.894Z  INFO 2400 --- [reactor-tcp-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 7
+2024-11-07T11:29:08.955Z  INFO 2400 --- [reactor-http-epoll-10] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 18
+2024-11-07T11:29:08.957Z  INFO 2400 --- [reactor-http-epoll-9] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 20
+2024-11-07T11:29:08.958Z  INFO 2400 --- [reactor-http-epoll-10] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 18
+2024-11-07T11:29:08.959Z  INFO 2400 --- [reactor-tcp-epoll-9] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 20
+2024-11-07T11:29:08.968Z  INFO 2400 --- [reactor-http-epoll-11] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 16
+2024-11-07T11:29:08.971Z  INFO 2400 --- [reactor-tcp-epoll-9] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 16
+2024-11-07T11:29:08.998Z  INFO 2400 --- [reactor-http-epoll-12] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 19
+2024-11-07T11:29:09.001Z  INFO 2400 --- [reactor-tcp-epoll-9] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 19
+2024-11-07T11:29:09.025Z  INFO 2400 --- [reactor-http-epoll-13] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 14
+2024-11-07T11:29:09.027Z  INFO 2400 --- [reactor-tcp-epoll-9] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 14
+2024-11-07T11:29:09.051Z  INFO 2400 --- [reactor-http-epoll-14] com.server.controller.MediaController    : Received request to fetch users subscribed to media with ID: 12
+2024-11-07T11:29:09.053Z  INFO 2400 --- [reactor-tcp-epoll-9] com.server.controller.MediaController    : Completed fetching users subscribed to media with ID: 12
+2024-11-07T11:29:09.068Z  INFO 2400 --- [reactor-http-epoll-11] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:29:09.073Z  INFO 2400 --- [reactor-tcp-epoll-9] com.server.controller.MediaController    : Completed fetching all media.
+2024-11-07T11:29:09.096Z  INFO 2400 --- [reactor-http-epoll-9] com.server.controller.MediaController    : Received request to fetch all media.
+2024-11-07T11:29:09.099Z  INFO 2400 --- [reactor-tcp-epoll-9] com.server.controller.MediaController    : Completed fetching all media.

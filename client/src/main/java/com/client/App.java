@@ -1,14 +1,13 @@
 package com.client;
 
 import java.time.LocalDate;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.reactive.function.client.WebClient;
+
+import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Flux;
 
 /**
@@ -19,10 +18,10 @@ import reactor.core.publisher.Flux;
  * to an output file using reactive, non-blocking patterns.
  */
 @SpringBootApplication
+@Slf4j
 public class App implements CommandLineRunner {
 
     private final WebClient webClient;
-    private static final String FILE_PATH = "output.txt";
 
     /**
      * Constructor to initialize the WebClient with a base URL.
@@ -52,7 +51,6 @@ public class App implements CommandLineRunner {
      */
     @Override
     public void run(String... args) {
-
         // Concatenate multiple requests into a single reactive Flux and write each
         // output to file
         Flux<String> outputFlux = Flux.concat(
@@ -66,8 +64,8 @@ public class App implements CommandLineRunner {
                 req8(),
                 req9(),
                 req10())
-                .doOnNext(line -> writeToFile(FILE_PATH, line))
-                .doOnError(error -> writeToFile(FILE_PATH, "Error: " + error.getMessage()));
+                .doOnNext(line -> log.info(line))
+                .doOnError(error -> log.error("Error: " + error.getMessage()));
 
         // Trigger the Flux by subscribing
         outputFlux.subscribe();
@@ -131,13 +129,13 @@ public class App implements CommandLineRunner {
                 .uri("/media")
                 .retrieve()
                 .bodyToFlux(Media.class)
-                .filter(m -> {
-                    return webClient.get()
-                            .uri("/media/" + m.getId() + "/users")
-                            .retrieve()
-                            .bodyToFlux(Long.class)
-                            .count().block() > 0;
-                })
+                .flatMap(media -> webClient.get()
+                        .uri("/media/" + media.getId() + "/users")
+                        .retrieve()
+                        .bodyToFlux(Long.class)
+                        .hasElements()
+                        .filter(hasUsers -> hasUsers)
+                        .map(hasUsers -> media))
                 .count()
                 .map(count -> "Media Count: " + count)
                 .flux()
@@ -213,20 +211,5 @@ public class App implements CommandLineRunner {
      */
     private Flux<String> req10() {
         return Flux.empty(); // TODO
-    }
-
-    /**
-     * Non-blocking file writer that appends a line to the specified file using
-     * reactive patterns.
-     *
-     * @param filePath - The path to the file where content should be written
-     * @param content  - The content to write to the file
-     */
-    private void writeToFile(String filePath, String content) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
-            writer.write(content);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 }

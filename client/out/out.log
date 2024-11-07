@@ -1,0 +1,199 @@
+Starting App using Java 17.0.13 with PID 16219 (/workspaces/Project/client/target/classes started by dev in /workspaces/Project/client)
+No active profile set, falling back to 1 default profile: "default"
+Started App in 5.063 seconds (process running for 5.851)
+---------------------REQ 1------------------------
+Error: executor not accepting a task
+Operator called default onErrorDropped
+reactor.core.Exceptions$ErrorCallbackNotImplemented: org.springframework.web.reactive.function.client.WebClientRequestException: executor not accepting a task
+Caused by: org.springframework.web.reactive.function.client.WebClientRequestException: executor not accepting a task
+	at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:136)
+	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
+Error has been observed at the following site(s):
+	*__checkpoint ⇢ Request to GET http://host.docker.internal:8080/media [DefaultWebClient]
+Original Stack Trace:
+		at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:136)
+		at reactor.core.publisher.MonoErrorSupplied.subscribe(MonoErrorSupplied.java:55)
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4495)
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103)
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
+		at reactor.core.publisher.MonoNext$NextSubscriber.onError(MonoNext.java:93)
+		at reactor.core.publisher.MonoFlatMapMany$FlatMapManyMain.onError(MonoFlatMapMany.java:204)
+		at reactor.core.publisher.SerializedSubscriber.onError(SerializedSubscriber.java:124)
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.whenError(FluxRetryWhen.java:225)
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenOtherSubscriber.onError(FluxRetryWhen.java:274)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onError(FluxContextWrite.java:121)
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.maybeOnError(FluxConcatMapNoPrefetch.java:326)
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.onNext(FluxConcatMapNoPrefetch.java:211)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107)
+		at reactor.core.publisher.SinkManyEmitterProcessor.drain(SinkManyEmitterProcessor.java:471)
+		at reactor.core.publisher.SinkManyEmitterProcessor$EmitterInner.drainParent(SinkManyEmitterProcessor.java:615)
+		at reactor.core.publisher.FluxPublish$PubSubInner.request(FluxPublish.java:871)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.request(FluxContextWrite.java:136)
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.request(FluxConcatMapNoPrefetch.java:336)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.request(FluxContextWrite.java:136)
+		at reactor.core.publisher.Operators$DeferredSubscription.request(Operators.java:1717)
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.onError(FluxRetryWhen.java:192)
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:201)
+		at reactor.netty.http.client.HttpClientConnect$MonoHttpConnect$ClientTransportSubscriber.onError(HttpClientConnect.java:311)
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:201)
+		at reactor.netty.resources.DefaultPooledConnectionProvider$DisposableAcquire.onError(DefaultPooledConnectionProvider.java:162)
+		at reactor.netty.internal.shaded.reactor.pool.AbstractPool$Borrower.fail(AbstractPool.java:475)
+		at reactor.netty.internal.shaded.reactor.pool.SimpleDequePool.lambda$drainLoop$9(SimpleDequePool.java:433)
+		at reactor.core.publisher.FluxDoOnEach$DoOnEachSubscriber.onError(FluxDoOnEach.java:186)
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:201)
+		at reactor.netty.resources.DefaultPooledConnectionProvider$PooledConnectionAllocator$PooledConnectionInitializer.onError(DefaultPooledConnectionProvider.java:560)
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.secondError(MonoFlatMap.java:241)
+		at reactor.core.publisher.MonoFlatMap$FlatMapInner.onError(MonoFlatMap.java:315)
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:106)
+		at reactor.core.publisher.Operators.error(Operators.java:198)
+		at reactor.core.publisher.MonoError.subscribe(MonoError.java:53)
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4495)
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103)
+		at reactor.core.publisher.Operators.error(Operators.java:198)
+		at reactor.core.publisher.MonoError.subscribe(MonoError.java:53)
+		at reactor.core.publisher.InternalMonoOperator.subscribe(InternalMonoOperator.java:64)
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.onNext(MonoFlatMap.java:165)
+		at reactor.netty.transport.TransportConnector$MonoChannelPromise._subscribe(TransportConnector.java:638)
+		at reactor.netty.transport.TransportConnector$MonoChannelPromise.lambda$subscribe$0(TransportConnector.java:550)
+		at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:174)
+		at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:167)
+		at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:470)
+		at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:416)
+		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+		at java.base/java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalStateException: executor not accepting a task
+	at io.netty.resolver.AddressResolverGroup.getResolver(AddressResolverGroup.java:61)
+	at reactor.netty.transport.TransportConnector.doResolveAndConnect(TransportConnector.java:303)
+	at reactor.netty.transport.TransportConnector.lambda$connect$6(TransportConnector.java:165)
+	at reactor.core.publisher.MonoFlatMap$FlatMapMain.onNext(MonoFlatMap.java:132)
+	at reactor.netty.transport.TransportConnector$MonoChannelPromise._subscribe(TransportConnector.java:638)
+	at reactor.netty.transport.TransportConnector$MonoChannelPromise.lambda$subscribe$0(TransportConnector.java:550)
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:174)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:167)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:470)
+	at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:416)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Starting App using Java 17.0.13 with PID 16505 (/workspaces/Project/client/target/classes started by dev in /workspaces/Project/client)
+No active profile set, falling back to 1 default profile: "default"
+Started App in 5.137 seconds (process running for 5.887)
+---------------------REQ 1------------------------
+Title: Back to the Future, Release Date: 1985-07-03
+Title: The Terminator, Release Date: 1984-10-26
+Title: E.T. the Extra-Terrestrial, Release Date: 1982-06-11
+Title: Inception, Release Date: 2010-07-16
+Title: The Dark Knight, Release Date: 2008-07-18
+Title: Pulp Fiction, Release Date: 1994-10-14
+Title: The Matrix, Release Date: 1999-03-31
+Title: Gladiator, Release Date: 2000-05-05
+Title: Interstellar, Release Date: 2014-11-07
+Title: Parasite, Release Date: 2019-05-30
+Title: Cheers, Release Date: 1982-09-30
+Title: The A-Team, Release Date: 1983-01-23
+Title: MacGyver, Release Date: 1985-09-29
+Title: Breaking Bad, Release Date: 2008-01-20
+Title: Game of Thrones, Release Date: 2011-04-17
+Title: The Office, Release Date: 2005-03-24
+Title: Stranger Things, Release Date: 2016-07-15
+Title: Friends, Release Date: 1994-09-22
+Title: The Mandalorian, Release Date: 2019-11-12
+Title: The Crown, Release Date: 2016-11-04
+---------------------REQ 2------------------------
+Total Media Count: 20
+---------------------REQ 3------------------------
+Total Really Good Media Count (Rating > 8): 15
+---------------------REQ 4------------------------
+Media Count: 18
+---------------------REQ 5------------------------
+Media(id=12, title=The A-Team, releaseDate=1983-01-23, averageRating=7.5, type=TV_SHOW)
+Media(id=13, title=MacGyver, releaseDate=1985-09-29, averageRating=7.7, type=TV_SHOW)
+Media(id=3, title=E.T. the Extra-Terrestrial, releaseDate=1982-06-11, averageRating=7.9, type=MOVIE)
+Media(id=11, title=Cheers, releaseDate=1982-09-30, averageRating=7.9, type=TV_SHOW)
+Media(id=2, title=The Terminator, releaseDate=1984-10-26, averageRating=8.0, type=MOVIE)
+Media(id=1, title=Back to the Future, releaseDate=1985-07-03, averageRating=8.5, type=MOVIE)
+---------------------REQ 7------------------------
+Media(id=3, title=E.T. the Extra-Terrestrial, releaseDate=1982-06-11, averageRating=7.9, type=MOVIE)
+Starting App using Java 17.0.13 with PID 17020 (/workspaces/Project/client/target/classes started by dev in /workspaces/Project/client)
+No active profile set, falling back to 1 default profile: "default"
+Started App in 5.27 seconds (process running for 5.976)
+---------------------REQ 1------------------------
+Title: Back to the Future, Release Date: 1985-07-03
+Title: The Terminator, Release Date: 1984-10-26
+Title: E.T. the Extra-Terrestrial, Release Date: 1982-06-11
+Title: Inception, Release Date: 2010-07-16
+Title: The Dark Knight, Release Date: 2008-07-18
+Title: Pulp Fiction, Release Date: 1994-10-14
+Title: The Matrix, Release Date: 1999-03-31
+Title: Gladiator, Release Date: 2000-05-05
+Title: Interstellar, Release Date: 2014-11-07
+Title: Parasite, Release Date: 2019-05-30
+Title: Cheers, Release Date: 1982-09-30
+Title: The A-Team, Release Date: 1983-01-23
+Title: MacGyver, Release Date: 1985-09-29
+Title: Breaking Bad, Release Date: 2008-01-20
+Title: Game of Thrones, Release Date: 2011-04-17
+Title: The Office, Release Date: 2005-03-24
+Title: Stranger Things, Release Date: 2016-07-15
+Title: Friends, Release Date: 1994-09-22
+Title: The Mandalorian, Release Date: 2019-11-12
+Title: The Crown, Release Date: 2016-11-04
+---------------------REQ 2------------------------
+Total Media Count: 20
+---------------------REQ 3------------------------
+Total Really Good Media Count (Rating > 8): 15
+---------------------REQ 4------------------------
+Media Count: 18
+---------------------REQ 5------------------------
+Media(id=12, title=The A-Team, releaseDate=1983-01-23, averageRating=7.5, type=TV_SHOW)
+Media(id=13, title=MacGyver, releaseDate=1985-09-29, averageRating=7.7, type=TV_SHOW)
+Media(id=3, title=E.T. the Extra-Terrestrial, releaseDate=1982-06-11, averageRating=7.9, type=MOVIE)
+Media(id=11, title=Cheers, releaseDate=1982-09-30, averageRating=7.9, type=TV_SHOW)
+Media(id=2, title=The Terminator, releaseDate=1984-10-26, averageRating=8.0, type=MOVIE)
+Media(id=1, title=Back to the Future, releaseDate=1985-07-03, averageRating=8.5, type=MOVIE)
+---------------------REQ 7------------------------
+Media(id=3, title=E.T. the Extra-Terrestrial, releaseDate=1982-06-11, averageRating=7.9, type=MOVIE)
+Starting App using Java 17.0.13 with PID 17867 (/workspaces/Project/client/target/classes started by dev in /workspaces/Project/client)
+No active profile set, falling back to 1 default profile: "default"
+Started App in 5.18 seconds (process running for 5.926)
+---------------------REQ 1------------------------
+Title: Back to the Future, Release Date: 1985-07-03
+Title: The Terminator, Release Date: 1984-10-26
+Title: E.T. the Extra-Terrestrial, Release Date: 1982-06-11
+Title: Inception, Release Date: 2010-07-16
+Title: The Dark Knight, Release Date: 2008-07-18
+Title: Pulp Fiction, Release Date: 1994-10-14
+Title: The Matrix, Release Date: 1999-03-31
+Title: Gladiator, Release Date: 2000-05-05
+Title: Interstellar, Release Date: 2014-11-07
+Title: Parasite, Release Date: 2019-05-30
+Title: Cheers, Release Date: 1982-09-30
+Title: The A-Team, Release Date: 1983-01-23
+Title: MacGyver, Release Date: 1985-09-29
+Title: Breaking Bad, Release Date: 2008-01-20
+Title: Game of Thrones, Release Date: 2011-04-17
+Title: The Office, Release Date: 2005-03-24
+Title: Stranger Things, Release Date: 2016-07-15
+Title: Friends, Release Date: 1994-09-22
+Title: The Mandalorian, Release Date: 2019-11-12
+Title: The Crown, Release Date: 2016-11-04
+---------------------REQ 2------------------------
+Total Media Count: 20
+---------------------REQ 3------------------------
+Total Really Good Media Count (Rating > 8): 15
+---------------------REQ 4------------------------
+Media Count: 18
+---------------------REQ 5------------------------
+Media(id=12, title=The A-Team, releaseDate=1983-01-23, averageRating=7.5, type=TV_SHOW)
+Media(id=13, title=MacGyver, releaseDate=1985-09-29, averageRating=7.7, type=TV_SHOW)
+Media(id=3, title=E.T. the Extra-Terrestrial, releaseDate=1982-06-11, averageRating=7.9, type=MOVIE)
+Media(id=11, title=Cheers, releaseDate=1982-09-30, averageRating=7.9, type=TV_SHOW)
+Media(id=2, title=The Terminator, releaseDate=1984-10-26, averageRating=8.0, type=MOVIE)
+Media(id=1, title=Back to the Future, releaseDate=1985-07-03, averageRating=8.5, type=MOVIE)
+---------------------REQ 7------------------------
+Media(id=3, title=E.T. the Extra-Terrestrial, releaseDate=1982-06-11, averageRating=7.9, type=MOVIE)
