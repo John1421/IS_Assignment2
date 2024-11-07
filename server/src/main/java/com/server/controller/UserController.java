@@ -44,6 +44,16 @@ public class UserController {
                 .doOnError(e -> log.error("Error fetching user with ID {}: {}", id, e.getMessage()));
     }
 
+    @GetMapping("/{id}/media")
+    public Flux<Long> getUsersByMediaId(@PathVariable("id") Long id) {
+        log.info("Received request to fetch media subscribed by user with ID: {}", id);
+        return userService.getMediaByUserId(id)
+                .doOnNext(mediaId -> log.debug("Fetched media with id: {}", mediaId))
+                .doOnError(
+                        e -> log.error("Error fetching media subscribed by user with ID {}: {}", id, e.getMessage()))
+                .doOnComplete(() -> log.info("Completed fetching media subscribed by user with ID: {}", id));
+    }
+
     // Create new user
     @PostMapping
     public Mono<User> createUser(@RequestBody User user) {

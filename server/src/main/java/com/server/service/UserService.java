@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.server.model.User;
+import com.server.repository.RelationshipRepository;
 import com.server.repository.UserRepository;
 
 import reactor.core.publisher.Flux;
@@ -15,6 +16,9 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private RelationshipRepository relationshipRepository;
+
     public Mono<User> createUser(User user) {
         return userRepository.save(user);
     }
@@ -25,6 +29,10 @@ public class UserService {
 
     public Mono<User> getUserById(long id) {
         return userRepository.findById(id);
+    }
+
+    public Flux<Long> getMediaByUserId(long id) {
+        return relationshipRepository.findByUserId(id).map(r -> r.getMediaId());
     }
 
     public Mono<User> updateUser(User user) {
