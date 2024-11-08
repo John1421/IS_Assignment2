@@ -2,7 +2,6 @@ package com.client;
 
 import java.time.Duration;
 import java.time.LocalDate;
-import java.util.AbstractMap;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -232,11 +231,10 @@ public class App implements CommandLineRunner {
                 .uri("/media")
                 .retrieve()
                 .bodyToFlux(Media.class)
-                .flatMap(media -> countUsersForMedia(media.getId())
-                        .map(userCount -> new AbstractMap.SimpleEntry<>(media, userCount)))
-                .reduce(new double[] { 0, 0 }, (acc, entry) -> {
+                .flatMap(media -> countUsersForMedia(media.getId()))
+                .reduce(new double[] { 0, 0 }, (acc, mediaUsersCount) -> {
                     acc[0] += 1;
-                    acc[1] += entry.getValue();
+                    acc[1] += mediaUsersCount;
                     return acc;
                 })
                 .flatMapMany(result -> {
@@ -247,13 +245,12 @@ public class App implements CommandLineRunner {
                 });
     }
 
-    private Mono<Integer> countUsersForMedia(long mediaId) {
+    private Mono<Long> countUsersForMedia(long mediaId) {
         return webClient.get()
                 .uri("/media/" + mediaId + "/users")
                 .retrieve()
                 .bodyToFlux(Long.class)
-                .count()
-                .map(Long::intValue);
+                .count();
     }
 
     /**
