@@ -71,7 +71,10 @@ public class App implements CommandLineRunner {
                 req9(),
                 req10())
                 .doOnNext(line -> log.info(line))
-                .doOnError(error -> log.error("Error: " + error.getMessage()));
+                .onErrorResume(error -> {
+                    log.error("ERROR: Failed to run this client");
+                    return Flux.just("ERROR: Failed to run this client");
+                });
 
         // Trigger the Flux by subscribing
         outputFlux.subscribe();
@@ -87,13 +90,11 @@ public class App implements CommandLineRunner {
                 .uri("/media")
                 .retrieve()
                 .bodyToFlux(Media.class)
-                .timeout(Duration.ofSeconds(10)) // Set a timeout of 10 seconds
                 .retryWhen(Retry.fixedDelay(3, Duration.ofSeconds(1))
                         .doBeforeRetry(retrySignal -> log.info(
                                 "Connection with the server not successful. Attempt {}... Trying again...",
                                 retrySignal.totalRetries() + 1)))
                 .map(media -> "Title: " + media.getTitle() + ", Release Date: " + media.getReleaseDate())
-                .onErrorResume(e -> Flux.just("Failed to retrieve media after multiple attempts or timeout."))
                 .startWith("---------------------REQ 1------------------------");
     }
 
@@ -150,7 +151,7 @@ public class App implements CommandLineRunner {
                         .filter(hasUsers -> hasUsers)
                         .map(hasUsers -> media))
                 .count()
-                .map(count -> "Media Count: " + count)
+                .map(count -> "Subscribed Media Count: " + count)
                 .flux()
                 .startWith("---------------------REQ 4------------------------");
     }
@@ -277,10 +278,10 @@ public class App implements CommandLineRunner {
                         .flatMap(this::getUserDetails)
                         .sort(Comparator.comparingInt(UserInfo::getAge).reversed())
                         .reduce(
-                                new Object[] { media.getTitle() + ": ", 0 }, // Initial state: [userString, count,
-                                                                             // formattedDetails]
+                                new Object[] { "", 0 }, // Initial state: [userString, count,
+                                                        // formattedDetails]
                                 (state, user) -> {
-                                    state[0] = state[0] + user.getName() + " (Age: " + user.getAge() + "), ";
+                                    state[0] = state[0] + user.getName() + ", ";
                                     state[1] = (int) state[1] + 1;
                                     return state;
                                 })
@@ -382,7 +383,7 @@ public class App implements CommandLineRunner {
      *         information
      */
     private String formatUserWithMedia(User user, String mediaTitles) {
-        return String.format("User: %s, Age: %d, Gender: %s, Subscribed Media: [%s]",
-                user.getName(), user.getAge(), user.getGender(), mediaTitles);
+        return String.format("User(%d): %s, Age: %d, Gender: %s, Subscribed Media: [%s]",
+                user.getId(), user.getName(), user.getAge(), user.getGender(), mediaTitles);
     }
 }
