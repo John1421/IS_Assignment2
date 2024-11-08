@@ -45,7 +45,7 @@ public class MediaService {
     }
 
     public Flux<Long> getUsersByMediaId(long id) {
-        return relationshipRepository.findAllById(Flux.just(id)).map(r -> r.getUserId());
+        return relationshipRepository.findByMediaId(id).map(r -> r.getUserId());
     }
 
     public Mono<Relationship> createRelationship(Relationship relationship) {
