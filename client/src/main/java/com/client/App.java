@@ -1,5 +1,6 @@
 package com.client;
 
+import java.time.Duration;
 import java.time.LocalDate;
 import java.util.AbstractMap;
 import java.util.Comparator;
@@ -16,6 +17,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+import reactor.util.retry.Retry;
 
 /**
  * The main application class that runs a Spring Boot application as a
@@ -85,11 +87,15 @@ public class App implements CommandLineRunner {
      */
     private Flux<String> req1() {
         return webClient.get()
-                .uri("/media")
-                .retrieve()
-                .bodyToFlux(Media.class)
-                .map(media -> "Title: " + media.getTitle() + ", Release Date: " + media.getReleaseDate())
-                .startWith("---------------------REQ 1------------------------");
+            .uri("/media")
+            .retrieve()
+            .bodyToFlux(Media.class)
+            .timeout(Duration.ofSeconds(10))  // Set a timeout of 10 seconds
+            .retryWhen(Retry.fixedDelay(3, Duration.ofSeconds(1))
+                .doBeforeRetry(retrySignal -> log.info("Connection with the server not successful. Attempt {}... Trying again...", retrySignal.totalRetries() + 1)))
+            .map(media -> "Title: " + media.getTitle() + ", Release Date: " + media.getReleaseDate())
+            .onErrorResume(e -> Flux.just("Failed to retrieve media after multiple attempts or timeout."))
+            .startWith("---------------------REQ 1------------------------");
     }
 
     /**
