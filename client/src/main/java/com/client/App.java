@@ -5,8 +5,6 @@ import java.time.LocalDate;
 import java.util.AbstractMap;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Map;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -88,15 +86,17 @@ public class App implements CommandLineRunner {
      */
     private Flux<String> req1() {
         return webClient.get()
-            .uri("/media")
-            .retrieve()
-            .bodyToFlux(Media.class)
-            .timeout(Duration.ofSeconds(10))  // Set a timeout of 10 seconds
-            .retryWhen(Retry.fixedDelay(3, Duration.ofSeconds(1))
-                .doBeforeRetry(retrySignal -> log.info("Connection with the server not successful. Attempt {}... Trying again...", retrySignal.totalRetries() + 1)))
-            .map(media -> "Title: " + media.getTitle() + ", Release Date: " + media.getReleaseDate())
-            .onErrorResume(e -> Flux.just("Failed to retrieve media after multiple attempts or timeout."))
-            .startWith("---------------------REQ 1------------------------");
+                .uri("/media")
+                .retrieve()
+                .bodyToFlux(Media.class)
+                .timeout(Duration.ofSeconds(10)) // Set a timeout of 10 seconds
+                .retryWhen(Retry.fixedDelay(3, Duration.ofSeconds(1))
+                        .doBeforeRetry(retrySignal -> log.info(
+                                "Connection with the server not successful. Attempt {}... Trying again...",
+                                retrySignal.totalRetries() + 1)))
+                .map(media -> "Title: " + media.getTitle() + ", Release Date: " + media.getReleaseDate())
+                .onErrorResume(e -> Flux.just("Failed to retrieve media after multiple attempts or timeout."))
+                .startWith("---------------------REQ 1------------------------");
     }
 
     /**
@@ -182,39 +182,28 @@ public class App implements CommandLineRunner {
      */
     private Flux<String> req6() {
         return webClient.get()
-            .uri("/media")
-            .retrieve()
-            .bodyToFlux(Media.class)
-            .map(Media::getAverageRating)
-            .reduce(new double[]{0, 0}, (acc, rating) -> {
-                acc[0] += rating;
-                acc[1] += 1;
-                return acc;
-            })
-            .flatMapMany(result -> {
-                double average = result[1] == 0 ? 0 : result[0] / result[1];
+                .uri("/media")
+                .retrieve()
+                .bodyToFlux(Media.class)
+                .map(Media::getAverageRating)
+                .reduce(new double[] { 0, 0, 0 }, (acc, rating) -> {
+                    acc[0] += rating; // sum of ratings
+                    acc[1] += 1; // count
+                    acc[2] += rating * rating; // sum of squares
+                    return acc;
+                })
+                .flatMapMany(result -> {
+                    double sum = result[0];
+                    double count = result[1];
+                    double sumOfSquares = result[2];
+                    double average = count > 0 ? sum / count : 0.0;
+                    double stdDev = count > 0 ? Math.sqrt((sumOfSquares / count) - (average * average)) : 0.0;
 
-                return webClient.get()
-                        .uri("/media")
-                        .retrieve()
-                        .bodyToFlux(Media.class)
-                        .map(Media::getAverageRating)
-                        .reduce(new double[]{0, 0}, (acc, rating) -> {
-                            acc[0] += Math.pow(rating - average, 2);
-                            acc[1] += 1;
-                            return acc;
-                        })
-                        .flatMapMany(varianceResult -> {
-                            double variance = varianceResult[1] == 0 ? 0 : varianceResult[0] / varianceResult[1];
-                            double stdDev = Math.sqrt(variance);
-
-                            return Flux.just(
-                                    "---------------------REQ 6------------------------",
-                                    "Average Rating: " + average,
-                                    "Standard Deviation of Ratings: " + stdDev
-                            );
-                        });
-            });
+                    return Flux.just(
+                            "---------------------REQ 6------------------------",
+                            "Average Rating: " + average,
+                            "Standard Deviation of Ratings: " + stdDev);
+                });
     }
 
     /**
@@ -240,31 +229,31 @@ public class App implements CommandLineRunner {
      */
     private Flux<String> req8() {
         return webClient.get()
-            .uri("/media")
-            .retrieve()
-            .bodyToFlux(Media.class)
-            .flatMap(media -> countUsersForMedia(media.getId())
-                    .map(userCount -> new AbstractMap.SimpleEntry<>(media, userCount)))
-            .reduce(new double[]{0, 0}, (acc, entry) -> {
-                acc[0] += 1;
-                acc[1] += entry.getValue();
-                return acc;
-            })
-            .flatMapMany(result -> {
-                double average = result[0] == 0 ? 0 : result[1] / result[0];
-                return Flux.just(
-                        "---------------------REQ 8------------------------",
-                        "Average number of users per media item: " + average);
-            });
+                .uri("/media")
+                .retrieve()
+                .bodyToFlux(Media.class)
+                .flatMap(media -> countUsersForMedia(media.getId())
+                        .map(userCount -> new AbstractMap.SimpleEntry<>(media, userCount)))
+                .reduce(new double[] { 0, 0 }, (acc, entry) -> {
+                    acc[0] += 1;
+                    acc[1] += entry.getValue();
+                    return acc;
+                })
+                .flatMapMany(result -> {
+                    double average = result[0] == 0 ? 0 : result[1] / result[0];
+                    return Flux.just(
+                            "---------------------REQ 8------------------------",
+                            "Average number of users per media item: " + average);
+                });
     }
 
     private Mono<Integer> countUsersForMedia(long mediaId) {
-    return webClient.get()
-            .uri("/media/" + mediaId + "/users")
-            .retrieve()
-            .bodyToFlux(Long.class)
-            .count()
-            .map(Long::intValue);
+        return webClient.get()
+                .uri("/media/" + mediaId + "/users")
+                .retrieve()
+                .bodyToFlux(Long.class)
+                .count()
+                .map(Long::intValue);
     }
 
     /**
@@ -280,33 +269,33 @@ public class App implements CommandLineRunner {
                 .flatMap(this::processMedia)
                 .startWith("---------------------REQ 9------------------------");
     }
-    
+
     private Mono<String> processMedia(Media media) {
         return getUsersForMedia(media.getId())
-                .flatMap(this::getUserDetails)  // Fetch user details for each ID.
-                .collectList()  // Collect all User details into a list.
+                .flatMap(this::getUserDetails) // Fetch user details for each ID.
+                .collectList() // Collect all User details into a list.
                 .map(users -> formatUserDetails(media, users));
     }
-    
+
     private Flux<Long> getUsersForMedia(long mediaId) {
         return webClient.get()
                 .uri("/media/" + mediaId + "/users")
                 .retrieve()
                 .bodyToFlux(Long.class);
     }
-    
+
     private Mono<User> getUserDetails(Long userId) {
         return webClient.get()
                 .uri("/user/" + userId)
                 .retrieve()
                 .bodyToMono(User.class);
     }
-    
+
     private String formatUserDetails(Media media, List<User> users) {
-        users.sort(Comparator.comparing(User::getAge).reversed());  // Sort users by age in descending order.
+        users.sort(Comparator.comparing(User::getAge).reversed()); // Sort users by age in descending order.
         String userDetails = users.stream()
-            .map(user -> user.getName() + " (Age: " + user.getAge() + ")")
-            .collect(Collectors.joining(", "));
+                .map(user -> user.getName() + " (Age: " + user.getAge() + ")")
+                .collect(Collectors.joining(", "));
         return "Media Title: " + media.getTitle() + " - Users: " + userDetails;
     }
 
@@ -317,16 +306,16 @@ public class App implements CommandLineRunner {
      */
     private Flux<String> req10() {
         return webClient.get()
-            .uri("/user")
-            .retrieve()
-            .bodyToFlux(User.class)
-            .flatMap(user -> getMediaForUser(user.getId())
-                .flatMap(this::getMediaDetails)
-                .collectList()
-                .map(mediaList -> formatUserWithMedia(user, mediaList)))
-            .startWith("---------------------REQ 10------------------------");
+                .uri("/user")
+                .retrieve()
+                .bodyToFlux(User.class)
+                .flatMap(user -> getMediaForUser(user.getId())
+                        .flatMap(this::getMediaDetails)
+                        .collectList()
+                        .map(mediaList -> formatUserWithMedia(user, mediaList)))
+                .startWith("---------------------REQ 10------------------------");
     }
-    
+
     private Flux<Long> getMediaForUser(Long userId) {
         return webClient.get()
                 .uri("/user/" + userId + "/media")
@@ -340,12 +329,12 @@ public class App implements CommandLineRunner {
                 .retrieve()
                 .bodyToMono(Media.class);
     }
-    
+
     private String formatUserWithMedia(User user, List<Media> mediaList) {
         String mediaTitles = mediaList.stream()
-                                      .map(Media::getTitle)
-                                      .collect(Collectors.joining(", "));
-        return String.format("User: %s, Age: %d, Gender: %s, Subscribed Media: [%s]", 
-                             user.getName(), user.getAge(), user.getGender(), mediaTitles);
+                .map(Media::getTitle)
+                .collect(Collectors.joining(", "));
+        return String.format("User: %s, Age: %d, Gender: %s, Subscribed Media: [%s]",
+                user.getName(), user.getAge(), user.getGender(), mediaTitles);
     }
 }
