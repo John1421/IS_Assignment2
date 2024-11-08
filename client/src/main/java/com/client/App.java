@@ -6,6 +6,7 @@ import java.util.AbstractMap;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -185,25 +186,36 @@ public class App implements CommandLineRunner {
             .retrieve()
             .bodyToFlux(Media.class)
             .map(Media::getAverageRating)
-            .collectList()
-            .flatMapMany(ratings -> {
-                double average = ratings.stream().mapToDouble(Double::doubleValue).average().orElse(0.0);
-                double stdDev = computeStandardDeviation(ratings, average);
-                return Flux.just(
-                    "---------------------REQ 6------------------------",
-                    "Average Rating: " + average,
-                    "Standard Deviation of Ratings: " + stdDev
-                );
+            .reduce(new double[]{0, 0}, (acc, rating) -> {
+                acc[0] += rating;
+                acc[1] += 1;
+                return acc;
+            })
+            .flatMapMany(result -> {
+                double average = result[1] == 0 ? 0 : result[0] / result[1];
+
+                return webClient.get()
+                        .uri("/media")
+                        .retrieve()
+                        .bodyToFlux(Media.class)
+                        .map(Media::getAverageRating)
+                        .reduce(new double[]{0, 0}, (acc, rating) -> {
+                            acc[0] += Math.pow(rating - average, 2);
+                            acc[1] += 1;
+                            return acc;
+                        })
+                        .flatMapMany(varianceResult -> {
+                            double variance = varianceResult[1] == 0 ? 0 : varianceResult[0] / varianceResult[1];
+                            double stdDev = Math.sqrt(variance);
+
+                            return Flux.just(
+                                    "---------------------REQ 6------------------------",
+                                    "Average Rating: " + average,
+                                    "Standard Deviation of Ratings: " + stdDev
+                            );
+                        });
             });
     }
-
-    private double computeStandardDeviation(List<Double> ratings, double average) {
-    double variance = ratings.stream()
-                             .mapToDouble(r -> Math.pow(r - average, 2))
-                             .average()
-                             .orElse(0.0);
-    return Math.sqrt(variance);
-}
 
     /**
      * Reactive method for REQ 7 - Finds the oldest media item.
@@ -232,19 +244,17 @@ public class App implements CommandLineRunner {
             .retrieve()
             .bodyToFlux(Media.class)
             .flatMap(media -> countUsersForMedia(media.getId())
-                .map(count -> new AbstractMap.SimpleEntry<>(media, count)))
-            .collectList()
-            .flatMapMany(entries -> {
-                if (entries.isEmpty()) {
-                    return Flux.just("---------------------REQ 8------------------------",
-                                     "No media found, so no average users can be calculated.");
-                }
-                double average = entries.stream()
-                                        .mapToInt(Map.Entry::getValue)
-                                        .average()
-                                        .orElse(0.0);
-                return Flux.just("---------------------REQ 8------------------------",
-                                 "Average number of users per media item: " + average);
+                    .map(userCount -> new AbstractMap.SimpleEntry<>(media, userCount)))
+            .reduce(new double[]{0, 0}, (acc, entry) -> {
+                acc[0] += 1;
+                acc[1] += entry.getValue();
+                return acc;
+            })
+            .flatMapMany(result -> {
+                double average = result[0] == 0 ? 0 : result[1] / result[0];
+                return Flux.just(
+                        "---------------------REQ 8------------------------",
+                        "Average number of users per media item: " + average);
             });
     }
 
