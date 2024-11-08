@@ -68,7 +68,7 @@ public class App implements CommandLineRunner {
                 req6(),
                 req7(),
                 req8(),
-                req9(),
+                // req9(),
                 req10())
                 .doOnNext(line -> log.info(line))
                 .doOnError(error -> log.error("Error: " + error.getMessage()));
@@ -307,17 +307,10 @@ public class App implements CommandLineRunner {
                 .retrieve()
                 .bodyToFlux(User.class)
                 .flatMap(user -> getMediaForUser(user.getId())
-                        .flatMap(this::getMediaDetails)
-                        .map(media -> {
-                            return media.getTitle() + ", ";
-                        })
+                        .flatMap(this::getMediaTitle)
+                        .reduce("", (result, title) -> result.isEmpty() ? title : result + ", " + title)
                         .map(mediaTitles -> formatUserWithMedia(user, mediaTitles)))
                 .startWith("---------------------REQ 10------------------------");
-    }
-
-    private String formatUserWithMedia(User user, String mediaTitles) {
-        return String.format("User: %s, Age: %d, Gender: %s, Subscribed Media: [%s]",
-                user.getName(), user.getAge(), user.getGender(), mediaTitles);
     }
 
     private Flux<Long> getMediaForUser(Long userId) {
@@ -327,11 +320,17 @@ public class App implements CommandLineRunner {
                 .bodyToFlux(Long.class);
     }
 
-    private Mono<Media> getMediaDetails(Long mediaId) {
+    private Mono<String> getMediaTitle(Long mediaId) {
         return webClient.get()
                 .uri("/media/" + mediaId)
                 .retrieve()
-                .bodyToMono(Media.class);
+                .bodyToMono(Media.class)
+                .map(Media::getTitle);
+    }
+
+    private String formatUserWithMedia(User user, String mediaTitles) {
+        return String.format("User: %s, Age: %d, Gender: %s, Subscribed Media: [%s]",
+                user.getName(), user.getAge(), user.getGender(), mediaTitles);
     }
 
 }
