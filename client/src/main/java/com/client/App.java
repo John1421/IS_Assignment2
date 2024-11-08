@@ -4,7 +4,6 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -258,21 +257,21 @@ public class App implements CommandLineRunner {
      *
      * @return Flux<String> - An empty Flux, to be implemented later
      */
-    private Flux<String> req9() {
-        return webClient.get()
-                .uri("/media")
-                .retrieve()
-                .bodyToFlux(Media.class)
-                .flatMap(this::processMedia)
-                .startWith("---------------------REQ 9------------------------");
-    }
+    // private Flux<String> req9() {
+    // return webClient.get()
+    // .uri("/media")
+    // .retrieve()
+    // .bodyToFlux(Media.class)
+    // .flatMap(this::processMedia)
+    // .startWith("---------------------REQ 9------------------------");
+    // }
 
-    private Mono<String> processMedia(Media media) {
-        return getUsersForMedia(media.getId())
-                .flatMap(this::getUserDetails) // Fetch user details for each ID.
-                .collectList() // Collect all User details into a list.
-                .map(users -> formatUserDetails(media, users));
-    }
+    // private Mono<String> processMedia(Media media) {
+    // return getUsersForMedia(media.getId())
+    // .flatMap(this::getUserDetails) // Fetch user details for each ID.
+    // .collectList() // Collect all User details into a list.
+    // .map(users -> formatUserDetails(media, users));
+    // }
 
     private Flux<Long> getUsersForMedia(long mediaId) {
         return webClient.get()
@@ -288,13 +287,14 @@ public class App implements CommandLineRunner {
                 .bodyToMono(User.class);
     }
 
-    private String formatUserDetails(Media media, List<User> users) {
-        users.sort(Comparator.comparing(User::getAge).reversed()); // Sort users by age in descending order.
-        String userDetails = users.stream()
-                .map(user -> user.getName() + " (Age: " + user.getAge() + ")")
-                .collect(Collectors.joining(", "));
-        return "Media Title: " + media.getTitle() + " - Users: " + userDetails;
-    }
+    // private String formatUserDetails(Media media, List<User> users) {
+    // users.sort(Comparator.comparing(User::getAge).reversed()); // Sort users by
+    // age in descending order.
+    // String userDetails = users.stream()
+    // .map(user -> user.getName() + " (Age: " + user.getAge() + ")")
+    // .collect(Collectors.joining(", "));
+    // return "Media Title: " + media.getTitle() + " - Users: " + userDetails;
+    // }
 
     /**
      * Reactive method for REQ 10 - Placeholder for additional request.
@@ -303,22 +303,21 @@ public class App implements CommandLineRunner {
      */
     private Flux<String> req10() {
         return webClient.get()
-            .uri("/user")
-            .retrieve()
-            .bodyToFlux(User.class)
-            .flatMap(user -> 
-                getMediaForUser(user.getId())
-                    .flatMap(this::getMediaDetails)
-                    .map(Media::getTitle)
-                    .collect(Collectors.joining(", "))
-                    .map(mediaTitles -> formatUserWithMedia(user, mediaTitles))
-            )
-            .startWith("---------------------REQ 10------------------------");
+                .uri("/user")
+                .retrieve()
+                .bodyToFlux(User.class)
+                .flatMap(user -> getMediaForUser(user.getId())
+                        .flatMap(this::getMediaDetails)
+                        .map(media -> {
+                            return media.getTitle() + ", ";
+                        })
+                        .map(mediaTitles -> formatUserWithMedia(user, mediaTitles)))
+                .startWith("---------------------REQ 10------------------------");
     }
 
     private String formatUserWithMedia(User user, String mediaTitles) {
-        return String.format("User: %s, Age: %d, Gender: %s, Subscribed Media: [%s]", 
-                             user.getName(), user.getAge(), user.getGender(), mediaTitles);
+        return String.format("User: %s, Age: %d, Gender: %s, Subscribed Media: [%s]",
+                user.getName(), user.getAge(), user.getGender(), mediaTitles);
     }
 
     private Flux<Long> getMediaForUser(Long userId) {
@@ -335,11 +334,4 @@ public class App implements CommandLineRunner {
                 .bodyToMono(Media.class);
     }
 
-    private String formatUserWithMedia(User user, List<Media> mediaList) {
-        String mediaTitles = mediaList.stream()
-                .map(Media::getTitle)
-                .collect(Collectors.joining(", "));
-        return String.format("User: %s, Age: %d, Gender: %s, Subscribed Media: [%s]",
-                user.getName(), user.getAge(), user.getGender(), mediaTitles);
-    }
 }
