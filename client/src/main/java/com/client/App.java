@@ -3,7 +3,6 @@ package com.client;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.util.Comparator;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -18,10 +17,9 @@ import reactor.util.retry.Retry;
 
 /**
  * The main application class that runs a Spring Boot application as a
- * console-based client.
- * This application retrieves media data from a remote API and writes specific
- * information
- * to an output file using reactive, non-blocking patterns.
+ * console-based client. It interacts with a remote media API and performs
+ * various
+ * data retrieval tasks in a non-blocking, reactive manner.
  */
 @SpringBootApplication
 @Slf4j
@@ -49,16 +47,18 @@ public class App implements CommandLineRunner {
     }
 
     /**
-     * Executes when the application starts, triggering various media requests.
-     * Combines multiple reactive requests into a single Flux, writing the results
-     * to an output file.
+     * Executes when the application starts, triggering various media requests
+     * and logging the results.
+     * 
+     * It concatenates multiple requests into a single reactive Flux and logs
+     * each output.
      *
      * @param args - command line arguments
      */
     @Override
     public void run(String... args) {
-        // Concatenate multiple requests into a single reactive Flux and write each
-        // output to file
+        // Concatenate multiple requests into a single reactive Flux and log each
+        // output
         Flux<String> outputFlux = Flux.concat(
                 req1(),
                 req2(),
@@ -68,7 +68,7 @@ public class App implements CommandLineRunner {
                 req6(),
                 req7(),
                 req8(),
-                // req9(),
+                req9(),
                 req10())
                 .doOnNext(line -> log.info(line))
                 .doOnError(error -> log.error("Error: " + error.getMessage()));
@@ -79,7 +79,7 @@ public class App implements CommandLineRunner {
 
     /**
      * Reactive method for REQ 1 - Retrieves media titles and release dates.
-     *
+     * 
      * @return Flux<String> - A Flux stream of media titles and release dates
      */
     private Flux<String> req1() {
@@ -98,8 +98,8 @@ public class App implements CommandLineRunner {
     }
 
     /**
-     * Reactive method for REQ 2 - Retrieves the total media count.
-     *
+     * Reactive method for REQ 2 - Retrieves the total count of media items.
+     * 
      * @return Flux<String> - A Flux containing the total media count message
      */
     private Flux<String> req2() {
@@ -114,9 +114,9 @@ public class App implements CommandLineRunner {
     }
 
     /**
-     * Reactive method for REQ 3 - Retrieves count of media items with rating above
-     * 8.
-     *
+     * Reactive method for REQ 3 - Retrieves the count of media items with an
+     * average rating above 8.
+     * 
      * @return Flux<String> - A Flux containing the count of high-rated media items
      */
     private Flux<String> req3() {
@@ -132,8 +132,9 @@ public class App implements CommandLineRunner {
     }
 
     /**
-     * Reactive method for REQ 4 - Retrieves and logs the media count.
-     *
+     * Reactive method for REQ 4 - Retrieves and logs the media count that has
+     * associated users.
+     * 
      * @return Flux<String> - A Flux containing the media count message
      */
     private Flux<String> req4() {
@@ -155,9 +156,9 @@ public class App implements CommandLineRunner {
     }
 
     /**
-     * Reactive method for REQ 5 - Retrieves and sorts media items from the 1980s by
-     * rating.
-     *
+     * Reactive method for REQ 5 - Retrieves and sorts media items from the 1980s
+     * by their rating in ascending order.
+     * 
      * @return Flux<String> - A Flux stream of sorted media information from the
      *         1980s
      */
@@ -174,9 +175,11 @@ public class App implements CommandLineRunner {
     }
 
     /**
-     * Reactive method for REQ 6 - Placeholder for additional request.
-     *
-     * @return Flux<String> - An empty Flux, to be implemented later
+     * Reactive method for REQ 6 - Calculates the average and standard deviation
+     * of the media ratings.
+     * 
+     * @return Flux<String> - A Flux containing the average and standard deviation
+     *         of media ratings
      */
     private Flux<String> req6() {
         return webClient.get()
@@ -205,8 +208,9 @@ public class App implements CommandLineRunner {
     }
 
     /**
-     * Reactive method for REQ 7 - Finds the oldest media item.
-     *
+     * Reactive method for REQ 7 - Finds the oldest media item based on the release
+     * date.
+     * 
      * @return Flux<String> - A Flux containing the oldest media item
      */
     private Flux<String> req7() {
@@ -221,9 +225,11 @@ public class App implements CommandLineRunner {
     }
 
     /**
-     * Reactive method for REQ 8 - Placeholder for additional request.
-     *
-     * @return Flux<String> - An empty Flux, to be implemented later
+     * Reactive method for REQ 8 - Calculates the average number of users per media
+     * item.
+     * 
+     * @return Flux<String> - A Flux containing the average number of users per
+     *         media item
      */
     private Flux<String> req8() {
         return webClient.get()
@@ -244,62 +250,88 @@ public class App implements CommandLineRunner {
                 });
     }
 
+    /**
+     * Retrieves the number of users associated with a specific media item.
+     * 
+     * @param mediaId - The ID of the media item
+     * @return Flux<Long> - A Flux containing the count of users for the media item
+     */
     private Mono<Long> countUsersForMedia(long mediaId) {
-        return webClient.get()
-                .uri("/media/" + mediaId + "/users")
-                .retrieve()
-                .bodyToFlux(Long.class)
+        return getUsersForMedia(mediaId)
                 .count();
     }
 
     /**
-     * Reactive method for REQ 9 - Placeholder for additional request.
-     *
-     * @return Flux<String> - An empty Flux, to be implemented later
+     * Reactive method for REQ 9 - Finds and sorts media items' users by age in
+     * descending order, and formats the results.
+     * 
+     * @return Flux<String> - A Flux containing the media items and associated user
+     *         information
      */
-    // private Flux<String> req9() {
-    // return webClient.get()
-    // .uri("/media")
-    // .retrieve()
-    // .bodyToFlux(Media.class)
-    // .flatMap(this::processMedia)
-    // .startWith("---------------------REQ 9------------------------");
-    // }
+    private Flux<String> req9() {
+        return webClient.get()
+                .uri("/media")
+                .retrieve()
+                .bodyToFlux(Media.class)
+                .flatMap(media -> getUsersForMedia(media.getId())
+                        .flatMap(this::getUserDetails)
+                        .sort(Comparator.comparingInt(UserInfo::getAge).reversed())
+                        .reduce(
+                                new Object[] { media.getTitle() + ": ", 0 }, // Initial state: [userString, count,
+                                                                             // formattedDetails]
+                                (state, user) -> {
+                                    state[0] = state[0] + user.getName() + " (Age: " + user.getAge() + "), ";
+                                    state[1] = (int) state[1] + 1;
+                                    return state;
+                                })
+                        .map(state -> {
+                            String userString = (String) state[0];
+                            int count = (int) state[1];
 
-    // private Mono<String> processMedia(Media media) {
-    // return getUsersForMedia(media.getId())
-    // .flatMap(this::getUserDetails) // Fetch user details for each ID.
-    // .collectList() // Collect all User details into a list.
-    // .map(users -> formatUserDetails(media, users));
-    // }
+                            // Remove the trailing comma and space, if present
+                            if (userString.endsWith(", ")) {
+                                userString = userString.substring(0, userString.length() - 2);
+                            }
 
+                            // Return the formatted result with the user count
+                            return String.format("Media Title: %s - Users: [%s] - Total Users: %d", media.getTitle(),
+                                    userString, count);
+                        }))
+                .startWith("---------------------REQ 9------------------------");
+    }
+
+    /**
+     * Retrieves the users associated with a media item.
+     * 
+     * @param mediaId - The ID of the media item
+     * @return Flux<Long> - A Flux containing the user IDs
+     */
     private Flux<Long> getUsersForMedia(long mediaId) {
         return webClient.get()
                 .uri("/media/" + mediaId + "/users")
                 .retrieve()
-                .bodyToFlux(Long.class);
+                .bodyToFlux(Long.class); // Returns user IDs for the media item
     }
 
-    private Mono<User> getUserDetails(Long userId) {
+    /**
+     * Retrieves detailed user information based on user ID.
+     * 
+     * @param userId - The ID of the user
+     * @return Mono<User> - A Mono containing the user details
+     */
+    private Mono<UserInfo> getUserDetails(Long userId) {
         return webClient.get()
                 .uri("/user/" + userId)
                 .retrieve()
-                .bodyToMono(User.class);
+                .bodyToMono(User.class)
+                .map(user -> new UserInfo(user.getName(), user.getAge())); // Returns user details from user
     }
 
-    // private String formatUserDetails(Media media, List<User> users) {
-    // users.sort(Comparator.comparing(User::getAge).reversed()); // Sort users by
-    // age in descending order.
-    // String userDetails = users.stream()
-    // .map(user -> user.getName() + " (Age: " + user.getAge() + ")")
-    // .collect(Collectors.joining(", "));
-    // return "Media Title: " + media.getTitle() + " - Users: " + userDetails;
-    // }
-
     /**
-     * Reactive method for REQ 10 - Placeholder for additional request.
-     *
-     * @return Flux<String> - An empty Flux, to be implemented later
+     * Reactive method for REQ 10 - Retrieves a user's details and their associated
+     * media items.
+     * 
+     * @return Flux<String> - A Flux containing the formatted user and media details
      */
     private Flux<String> req10() {
         return webClient.get()
@@ -313,6 +345,12 @@ public class App implements CommandLineRunner {
                 .startWith("---------------------REQ 10------------------------");
     }
 
+    /**
+     * Retrieves the media items associated with a specific user.
+     * 
+     * @param userId - The ID of the user
+     * @return Flux<Long> - A Flux containing media IDs
+     */
     private Flux<Long> getMediaForUser(Long userId) {
         return webClient.get()
                 .uri("/user/" + userId + "/media")
@@ -320,6 +358,12 @@ public class App implements CommandLineRunner {
                 .bodyToFlux(Long.class);
     }
 
+    /**
+     * Retrieves the title of a media item based on its ID.
+     * 
+     * @param mediaId - The ID of the media item
+     * @return Mono<String> - A Mono containing the media title
+     */
     private Mono<String> getMediaTitle(Long mediaId) {
         return webClient.get()
                 .uri("/media/" + mediaId)
@@ -328,9 +372,17 @@ public class App implements CommandLineRunner {
                 .map(Media::getTitle);
     }
 
+    /**
+     * Formats a user's details along with the titles of the media items they are
+     * associated with.
+     * 
+     * @param user        - The user object
+     * @param mediaTitles - The list of media titles the user is associated with
+     * @return String - The formatted string containing the user and media
+     *         information
+     */
     private String formatUserWithMedia(User user, String mediaTitles) {
         return String.format("User: %s, Age: %d, Gender: %s, Subscribed Media: [%s]",
                 user.getName(), user.getAge(), user.getGender(), mediaTitles);
     }
-
 }
