@@ -306,14 +306,22 @@ public class App implements CommandLineRunner {
      */
     private Flux<String> req10() {
         return webClient.get()
-                .uri("/user")
-                .retrieve()
-                .bodyToFlux(User.class)
-                .flatMap(user -> getMediaForUser(user.getId())
-                        .flatMap(this::getMediaDetails)
-                        .collectList()
-                        .map(mediaList -> formatUserWithMedia(user, mediaList)))
-                .startWith("---------------------REQ 10------------------------");
+            .uri("/user")
+            .retrieve()
+            .bodyToFlux(User.class)
+            .flatMap(user -> 
+                getMediaForUser(user.getId())
+                    .flatMap(this::getMediaDetails)
+                    .map(Media::getTitle)
+                    .collect(Collectors.joining(", "))
+                    .map(mediaTitles -> formatUserWithMedia(user, mediaTitles))
+            )
+            .startWith("---------------------REQ 10------------------------");
+    }
+
+    private String formatUserWithMedia(User user, String mediaTitles) {
+        return String.format("User: %s, Age: %d, Gender: %s, Subscribed Media: [%s]", 
+                             user.getName(), user.getAge(), user.getGender(), mediaTitles);
     }
 
     private Flux<Long> getMediaForUser(Long userId) {
